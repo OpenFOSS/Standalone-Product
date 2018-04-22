@@ -21,6 +21,19 @@
 <p>** the raw git diff exists at the bottom of this document under ** <a href="#STAND-79"><em>Code Contribution #1 STAND-79</em></a></p>
 <h2 id="code-contribution-2-trunk-3401">Code Contribution #2 TRUNK-3401</h2>
 <h3 id="description-1">Description</h3>
+<p>TRUNK-3401 is an OpenMRS backlog issue that addresses a bug that was discovered in OpenMRS version 1.9. If a call is made to encounter.setProvider(User) method in api/src/main/java/org/openmrs/api/impl/ProviderServiceImpl.java and the User does not have a Provider object associated, it throws an error. Though the current version at the time of writing this note was 2.1, the OpenMRS community wanted this method fixed to provide backwards-compatibility and support for modules that use this method. The specifications stated the following requirements to fix the bug:</p>
+<ol>
+<li>Create a convenience method in ProviderServiceImp.java class that takes a user and creates a Provider for them.</li>
+<li>Create a Provider record object for the User if the Provider is not already assigned to this User.</li>
+<li>An exception should be thrown if the Provider Object could not be created for the user.</li>
+</ol>
+<p>OpenFOSS team added value to OpenMRS by making the following changes to satisfy the requirements:</p>
+<ul>
+<li>We added a method to the interface to ensure that the method is always implemented by any inheriting classes.</li>
+<li>We added some tests to ensure that we got the desired outcome which also increased the test coverage.</li>
+<li>Then created a method to allow a user to be assigned a Provider object if none is already assigned and if the Provider is already assigned, it will return the Provider.</li>
+</ul>
+<p>We made a number of GitHub pull requests for this issue, and the OpenMRS developer community responded with a number of recommendations that are reflected in the current pull request. Some changes included, the addition of logging as well as the message to be logged, and the order of the if/else checks in the method. This information is important to ensure that any new changes made for this issue do not regress the code and intent.</p>
 <h3 id="links-1">Links</h3>
 <ul>
 <li><a href="Code-Contributions/TRUNK-3401/Pull_Request/2625.html">Pull Request</a></li>
@@ -30,6 +43,10 @@
 <p>** the raw git diff exists at the bottom of this document under ** <a href="#TRUNK-3401"><em>Code Contribution #2 TRUNK-3401</em></a></p>
 <h2 id="code-contribution-3-trunk-5331">Code Contribution #3 TRUNK-5331</h2>
 <h3 id="description-2">Description</h3>
+<p>OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS’ extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, you can view OpenMRS’ JIRA issue, [TRUNK-5331](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]</p>
+<p>This contribution added 46 lines of code to the product; it added one new test (29 lines) and refactored one function (17 lines). This contribution represents 20 hours of effort, and you may view the exact changes we made in <a href="Code-Contributions/TRUNK-5331/TRUNK-5331.txt">git diff</a></p>
+<p>OpenMRS’ automated code review of this contribution, which can be found in this <a href="Code-Contributions/TRUNK-5331/Pull_Request/2649.html">Pull Request</a>, showed that we met all of their quality standards, which included (but were not limited to): *Passing integration testing *Increasing the product’s overall code coverage *Adhering to style conventions.</p>
+<p>Additionally, to address the needs of our code’s maintainers, we created a UML activity diagram (consider adding link) depicting the intended behavior of the function.</p>
 <h3 id="links-2">Links</h3>
 <ul>
 <li><a href="Code-Contributions/TRUNK-5331/Pull_Request/2649.html">Pull Request</a></li>
@@ -39,6 +56,7 @@
 <p>** the raw git diff exists at the bottom of this document under ** <a href="#TRUNK-5331"><em>Code Contribution #3 TRUNK-5331</em></a></p>
 <h2 id="code-contribution-4-trunk-5382">Code Contribution #4 TRUNK-5382</h2>
 <h3 id="description-3">Description</h3>
+<p>The method getSetmembers() returns all members which includes both retired and unretired members, and it does not have an option to exclude retired members, so in order to enhance the user experience OpenFoss has claimed this issue and made an attempt to add this feature. We have added a method called getSetMembers(Boolean includeRetired) if the parameter is set to true the method returns the same as getSEtMembers() otherwise returns all set members excluding retired members.</p>
 <h3 id="links-3">Links</h3>
 <ul>
 <li><a href="Code-Contributions/TRUNK-5382/Pull_Request/2654.html">Pull Request</a></li>
@@ -72,6 +90,7 @@
 <p>** the raw git diff exists at the bottom of this document under ** <a href="#TRUNK-5372"><em>Code Contribution #1 TRUNK-5372</em></a></p>
 <h2 id="backlog-contribution-4-trunk-5391">Backlog Contribution #4 TRUNK-5391</h2>
 <h3 id="description-7">Description</h3>
+<p>While the OpenMRS team was pair programming on another OpenMRS backlog issue, we realized that tests were failing because there was a method in the openmrs-core/api/src/main/java/org/openmrs/Obs.java called setValueBoolean(Boolean) that was setting only null and nothing else when a Boolean is passed in. The OpenMRS team added value by opening a bug report in the OpenMRS Bug tracking tool called Jira for the issue to be assessed. We also recommended various tests that could be used to identify the issue.</p>
 <h3 id="links-7">Links</h3>
 <ul>
 <li><a href="Backlog-Contributions/TRUNK-5391/TRUNK-5391.htm">OpenMRS User Story</a></li>
@@ -112,8 +131,8 @@
 <h2 id="note">Note</h2>
 <p>Any static html files contain the information relevant to the contribution. However external links still exist within the files. These external links are not indicative of the team’s contribution. As an example within the Pull Request Directories the ‘Conversation’ ‘Commits’, and ‘Files changed’ tabs function statically.</p>
 <h1 id="licence">Licence</h1>
-<p>OpenMRS code is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL has not distributed with this file, One can obtain a copy of this licence at <a href="http://mozilla.org/MPL/2.0/">mozilla.org/MPL/2.0</a>. OpenMRS is also distributed under the terms of the Healthcare Disclaimer located at <a href="http://openmrs.org/licence">openmrs.org/licence</a></p>
-<p>Therefore, anyone is free to make modification to the project files as far as the terms of the license permit.</p>
+<p>OpenMRS code is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL has not been distributed with this file, one can obtain a copy of this licence at <a href="http://mozilla.org/MPL/2.0/">mozilla.org/MPL/2.0</a>. OpenMRS is also distributed under the terms of the Healthcare Disclaimer located at <a href="http://openmrs.org/licence">openmrs.org/licence</a></p>
+<p>Therefore, anyone is free to make modifications to the project files as far as the terms of the license permit.</p>
 <h1 id="references">References</h1>
 <h2 id="code-contribution-1-stand-79-1"><a name='STAND-79'>Code Contribution #1 STAND-79</h2>
 <pre><code>diff --git a/src/main/config/README.txt b/src/main/config/README.txt
