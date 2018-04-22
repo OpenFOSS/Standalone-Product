@@ -16,7 +16,7 @@ This document contains the product deliverables from the OpenFOSS team throughou
 ## Code Contribution #1 STAND-79
 ### Description
 
-The OpenMRS platform has a all-inclusive installation option they call their OpenMRS-Standalone product. The installation instructions for this service appeared to have an error regarding the default login credentials for the webapp. This was reported in two user stories within the OpenMRS backlog STAND-79 and STAND-54. Our team's pull request made updated the documentation to match the code in production.
+The OpenMRS platform has a all-inclusive installation option they call their OpenMRS-Standalone product. The installation instructions for this service appeared to have an error regarding the default login credentials for the webapp. This was reported in two user stories within the OpenMRS backlog STAND-79 and STAND-54. Our team's pull request updated the documentation to match the code in production.
 
 ### Links
 * [Pull Request](Code-Contributions/STAND-79/Pull_Request/32.html)
