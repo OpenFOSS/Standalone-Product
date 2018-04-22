@@ -148,9 +148,9 @@ statically.
 
 # Licence
 
-OpenMRS code is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL has not distributed with this file, One can obtain a copy of this licence at [mozilla.org/MPL/2.0](http://mozilla.org/MPL/2.0/). OpenMRS is also distributed under the terms of the Healthcare Disclaimer located at [openmrs.org/licence](http://openmrs.org/licence)
+OpenMRS code is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL has not been distributed with this file, one can obtain a copy of this licence at [mozilla.org/MPL/2.0](http://mozilla.org/MPL/2.0/). OpenMRS is also distributed under the terms of the Healthcare Disclaimer located at [openmrs.org/licence](http://openmrs.org/licence)
 
-Therefore, anyone is free to make modification to the project files as far as the terms of the license permit.
+Therefore, anyone is free to make modifications to the project files as far as the terms of the license permit.
 
 # References
 
