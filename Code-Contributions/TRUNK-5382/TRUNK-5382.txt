@@ -1,20 +1,14 @@
-diff --git a/api/src/main/java/org/openmrs/Concept.java b/api/src/main/java/org/openmrs/Concept.java
-index e3a7f0e4f..2dabc769c 100644
---- a/api/src/main/java/org/openmrs/Concept.java
-+++ b/api/src/main/java/org/openmrs/Concept.java
-@@ -1556,6 +1556,25 @@ public class Concept extends BaseOpenmrsObject implements Auditable, Retireable,
- 		}
- 		return Collections.unmodifiableList(conceptMembers);
- 	}
+api/src/main/java/org/openmrs/Concept.java
+
 +
 +	/**
 +	 * If <code>includeRetired</code> is true, then the returned object is the actual stored list of
 +	 * {@link Concept}s
 +	 *
-+	 * @param includeRetired true/false whether to also include the retired answers
++	 * @param includeRetired true/false whether to also include the retired members
 +	 * @return List&lt;Concept&gt; the Concepts that are members of this Concept's set
 +	 * @should return the same as getSetMembers() if includeRetired is true
-+	 * @should not return retired answers if includeRetired is false
++	 * @should not return retired members if includeRetired is false
 +	 */
 +	public List<Concept> getSetMembers(boolean includeRetired){
 +		if (includeRetired) {
@@ -25,29 +19,10 @@ index e3a7f0e4f..2dabc769c 100644
 +				.collect(Collectors.toList());
 +		}
 +	}
- 	
- 	/**
- 	 * Appends the concept to the end of the existing list of concept members for this Concept
-diff --git a/api/src/test/java/org/openmrs/ConceptTest.java b/api/src/test/java/org/openmrs/ConceptTest.java
-index 9946f47c0..95a9657d9 100644
---- a/api/src/test/java/org/openmrs/ConceptTest.java
-+++ b/api/src/test/java/org/openmrs/ConceptTest.java
-@@ -23,9 +23,11 @@ import java.util.Locale;
- import java.util.Set;
- 
- import org.junit.Assert;
-+import org.junit.Before;
- import org.junit.Test;
- import org.openmrs.api.APIException;
- import org.openmrs.api.ConceptNameType;
-+import org.openmrs.api.ConceptService;
- import org.openmrs.api.context.Context;
- import org.openmrs.test.BaseContextSensitiveTest;
- 
-@@ -33,6 +35,15 @@ import org.openmrs.test.BaseContextSensitiveTest;
-  * Behavior-driven tests of the Concept class.
-  */
- public class ConceptTest extends BaseContextSensitiveTest {
+
+
+api/src/test/java/org/openmrs/ConceptTest.java
+
 +	protected static final String CONCEPT_XML_DATASET_PACKAGE_PATH = "org/openmrs/api/include/ConceptTest.xml";
 +
 +	private ConceptService service;
@@ -57,14 +32,8 @@ index 9946f47c0..95a9657d9 100644
 +		service = Context.getConceptService();
 +		executeDataSet(CONCEPT_XML_DATASET_PACKAGE_PATH);
 +	}
- 	
- 	/**
- 	 * When asked for a collection of compatible names, the returned collection should not include
-@@ -570,6 +581,65 @@ public class ConceptTest extends BaseContextSensitiveTest {
- 		Assert.assertEquals(1, setMembers.size());
- 		setMembers.add(new Concept());
- 	}
 +
+
 +	/**
 +	 * @see Concept#getSetMembers()
 +	 */
@@ -86,12 +55,14 @@ index 9946f47c0..95a9657d9 100644
 +		Concept setMember4 = service.getConcept(12345679);
 +		c.addSetMember(setMember4);
 +
-+
 +		List<Concept> setMembers = c.getSetMembers(true);
 +
 +		Assert.assertEquals(4, setMembers.size());
-+		Assert.assertEquals(setMember1, setMembers.get(0));
-+		Assert.assertEquals(setMember2, setMembers.get(1));
++
++		Assert.assertFalse(setMembers.get(0).getRetired());
++		Assert.assertFalse(setMembers.get(1).getRetired());
++		Assert.assertTrue(setMembers.get(2).getRetired());
++		Assert.assertTrue(setMembers.get(3).getRetired());
 +	}
 +
 +	/**
@@ -118,20 +89,11 @@ index 9946f47c0..95a9657d9 100644
 +		List<Concept> setMembers = c.getSetMembers(false);
 +
 +		Assert.assertEquals(2, setMembers.size());
-+		Assert.assertEquals(setMember1, setMembers.get(0));
-+		Assert.assertEquals(setMember2, setMembers.get(1));
-+
-+
-+	}
- 	
- 	/**
- 	 * @see Concept#addSetMember(Concept)
-diff --git a/api/src/test/resources/org/openmrs/api/include/ConceptTest.xml b/api/src/test/resources/org/openmrs/api/include/ConceptTest.xml
-new file mode 100644
-index 000000000..37fc8451a
---- /dev/null
-+++ b/api/src/test/resources/org/openmrs/api/include/ConceptTest.xml
-@@ -0,0 +1,19 @@
++       }
+
+
+api/src/test/resources/org/openmrs/api/include/ConceptTest.xml
+
 +<?xml version='1.0' encoding='UTF-8'?>
 +<!--
 +
@@ -151,3 +113,4 @@ index 000000000..37fc8451a
 +	<concept concept_id="8675439" retired="1" datatype_id="4" class_id="3" is_set="false" creator="1" date_created="2008-08-15 15:27:51.0" uuid="568b58c8-e878-11e0-950d-00248140a5e7"/>
 +	<concept concept_id="12345679" retired="1" datatype_id="4" class_id="5" is_set="false" creator="1" date_created="2008-08-15 15:27:51.0" uuid="568b58c8-e878-11e0-950d-00248140a5e8"/>
 +</dataset>
++
