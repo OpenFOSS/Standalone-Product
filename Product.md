@@ -108,6 +108,9 @@ The method getSetmembers() returns all members which includes both retired and u
 
 ## Backlog Contribution #4 TRUNK-5391
 ### Description
+While the OpenMRS team was pair programming on another OpenMRS backlog issue, we realized that tests were failing because there was a method in the openmrs-core/api/src/main/java/org/openmrs/Obs.java called setValueBoolean(Boolean) that was setting only null and nothing else when a Boolean is passed in.
+The OpenMRS team added value by opening a bug report in the OpenMRS Bug tracking tool called Jira for the issue to be assessed. We also recommended various tests that could be used to identify the issue. 
+
 ### Links
 * [OpenMRS User Story](Backlog-Contributions/TRUNK-5391/TRUNK-5391.htm)
 
