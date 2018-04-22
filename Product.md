@@ -32,10 +32,13 @@ The specifications stated the following requirements to fix the bug:
 1.	Create a convenience method in ProviderServiceImp.java class that takes a user and creates a Provider for them.
 2.	Create a Provider record object for the User if the Provider is not already assigned to this User.
 3.	An exception should be thrown if the Provider Object could not be created for the user.
+
 OpenFOSS team added value to OpenMRS by making the following changes to satisfy the requirements:
-We added a method to the interface to ensure that the method is always implemented by any inheriting classes. 
-We added some tests to ensure that we got the desired outcome which also increased the test coverage.
-Then created a method to allow a user to be assigned a Provider object if none is already assigned and if the Provider is already assigned, it will return the Provider. 
+
+*We added a method to the interface to ensure that the method is always implemented by any inheriting classes. 
+*We added some tests to ensure that we got the desired outcome which also increased the test coverage.
+*Then created a method to allow a user to be assigned a Provider object if none is already assigned and if the Provider is already assigned, it will return the Provider. 
+
 We made a number of GitHub pull requests for this issue, and the OpenMRS developer community responded with a number of recommendations that are reflected in the current pull request. Some changes included, the addition of logging as well as the message to be logged, and the order of the if/else checks in the method.
 This information is important to ensure that any new changes made for this issue do not regress the code and intent. 
 
