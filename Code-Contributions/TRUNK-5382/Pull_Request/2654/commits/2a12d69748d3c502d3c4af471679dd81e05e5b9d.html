@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
   
-<!-- Mirrored from github.com/openmrs/openmrs-standalone/pull/32/commits/ce951ca08bf480d6eeef6c7aac72f579311198ff?diff=split by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Apr 2018 22:48:21 GMT -->
+<!-- Mirrored from github.com/openmrs/openmrs-core/pull/2654/commits/2a12d69748d3c502d3c4af471679dd81e05e5b9d by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Apr 2018 21:02:39 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="utf-8">
@@ -22,7 +22,7 @@
 
 
   <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://assets-cdn.github.com/assets/frameworks-592c4aa40e940d1b0607a3cf272916ff.css" />
-  <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://assets-cdn.github.com/assets/github-96ebb1551fc5dba84c6d2a0fa7b1cfcf.css" />
+  <link crossorigin="anonymous" media="all" rel="stylesheet" href="https://assets-cdn.github.com/assets/github-fdbbae74da4136fd4258a92eb943be60.css" />
   
   
   
@@ -30,33 +30,50 @@
 
   <meta name="viewport" content="width=device-width">
   
-  <title>STAND-79 - Updating password in documentation. by jody · Pull Request #32 · openmrs/openmrs-standalone</title>
-    <meta name="description" content="Description of what I changed
-This change updates the documentation for the standalone application to reflect the current password in the web app. More details and conversations of this can be found here
+  <title>TRUNK-5382 add extra utility method to exclude retired concepts by saidrobley · Pull Request #2654 · openmrs/openmrs-core</title>
+    <meta name="description" content="TRUNK-5382 Extra utility method for excluding retired concepts while fetching setmembers
+Description of what I changed
+Created utility method called getSetMembers(boolean includeRetired). If includeRetired is true it returns the same as getSetMembers(), if false it should return excluding retired members.
 Issue I worked on
-STAND-79
-Checklist:
+see https://issues.openmrs.org/browse/TRUNK-5382
+Checklist: I completed these to help reviewers :)
 
 
- My pull request only contains ONE single commit
+[x ] My pull request only contains ONE single commit
+(the number above, next to the &#39;Commits&#39; tab is 1).
 
 
- My pull request is based on the latest changes of the master branch.">
+[x ] My IDE is configured to follow the code style of this project.
+
+
+[ x] I have added tests to cover my changes. (If you refactored
+existing code that was well tested you do not have to add tests)
+
+
+[x ] I ran mvn clean package right before creating this pull request and
+added all formatting changes to my commit.
+
+
+[x ] All new and existing tests passed.
+
+
+[ x] My pull request is based on the latest changes of the master branch.">
   <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
   <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
   <meta property="fb:app_id" content="1401488693436528">
 
     
-    <meta property="og:image" content="https://avatars3.githubusercontent.com/u/3847723?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="STAND-79 - Updating password in documentation. by jody · Pull Request #32 · openmrs/openmrs-standalone" /><meta property="og:url" content="../../32.html" /><meta property="og:description" content="Description of what I changed
-This change updates the documentation for the standalone application to reflect the current password in the web app. More details and conversations of this can be foun..." />
+    <meta property="og:image" content="https://avatars3.githubusercontent.com/u/12665751?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="TRUNK-5382 add extra utility method to exclude retired concepts by saidrobley · Pull Request #2654 · openmrs/openmrs-core" /><meta property="og:url" content="../../2654.html" /><meta property="og:description" content="TRUNK-5382 Extra utility method for excluding retired concepts while fetching setmembers
+Description of what I changed
+Created utility method called getSetMembers(boolean includeRetired). If includ..." />
 
   <link rel="assets" href="https://assets-cdn.github.com/">
-  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MjY2NTg1MzkyOjE1ZTY0ZjNkYjk0ODM2NGMxNjFhNTU4ZjRkZDg5NDRjNTIwZDVmNzM3Zjc5MjIwZGFlN2YzNGM2ZjQyZjdmMjc=--9e4ccc9323544e6efe6bb292674fbc100f0784b8">
+  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MTk2NTIwODMzOjA3MzI3ODU5N2YyZmNiMTI3NTAyMzA5NmYwY2JiOTliZTAzOTA3YjljMjM5OTA0YjBlOTEyZTVhMGNhMDI1MzI=--dec56d3ae96982c5dac2e195c3f5bfb9da3788e8">
   <meta name="pjax-timeout" content="1000">
   <link rel="sudo-modal" href="https://github.com/sessions/sudo_modal">
-  <meta name="request-id" content="FD80:5D4F:2D5346B:51EB48D:5AD2852E" data-pjax-transient>
+  <meta name="request-id" content="C3B3:413B:3751B27:68CC638:5ADCF86C" data-pjax-transient>
 
-    <meta name="hovercard-subject-tag" content="pull_request:169853982" data-pjax-transient>
+    <meta name="hovercard-subject-tag" content="pull_request:181053772" data-pjax-transient>
 
   
 
@@ -67,7 +84,7 @@ This change updates the documentation for the standalone application to reflect 
   <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
     <meta name="google-analytics" content="UA-3769691-2">
 
-<meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="FD80:5D4F:2D5346B:51EB48D:5AD2852E" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="13240317" /><meta name="octolytics-actor-login" content="jody" /><meta name="octolytics-actor-hash" content="ea51d027af9bc3026f075cde3e1eea328933334be912e3e50469781733f2e7a7" />
+<meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="C3B3:413B:3751B27:68CC638:5ADCF86C" /><meta name="octolytics-dimension-region_edge" content="iad" /><meta name="octolytics-dimension-region_render" content="iad" /><meta name="octolytics-actor-id" content="3847723" /><meta name="octolytics-actor-login" content="jody" /><meta name="octolytics-actor-hash" content="f8f93d3494787cb158e56da322436696e22020e3f8cafff85fcf0850ffa3c9ef" />
 <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/pull_requests/show/files" data-pjax-transient="true" />
 
 
@@ -82,36 +99,35 @@ This change updates the documentation for the standalone application to reflect 
     <meta name="user-login" content="jody">
 
       <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="ODlmNjNlZGNiNGZhMDE5NGIyZTc3Njg5MzM4NjdiYmIyNjk5MDZmYzQ4NWViNTdmMjdhYWYzNmYyODVmMTYzY3x7InJlbW90ZV9hZGRyZXNzIjoiNzIuMTY1LjI0Ljc0IiwicmVxdWVzdF9pZCI6IkZEODA6NUQ0RjoyRDUzNDZCOjUxRUI0OEQ6NUFEMjg1MkUiLCJ0aW1lc3RhbXAiOjE1MjM3NDYwOTQsImhvc3QiOiJnaXRodWIuY29tIn0=">
+    <meta name="js-proxy-site-detection-payload" content="NDFhMDQ4ZWIyMDgxNDIyN2JmMDYzYTA1ZTkyNjg5ZjdiZjc2MzFlNzcxOWViZjY4YWEyYTNiZmM2NjcwN2FmY3x7InJlbW90ZV9hZGRyZXNzIjoiMjQuOC4xNzcuMjciLCJyZXF1ZXN0X2lkIjoiQzNCMzo0MTNCOjM3NTFCMjc6NjhDQzYzODo1QURDRjg2QyIsInRpbWVzdGFtcCI6MTUyNDQzMDk1NywiaG9zdCI6ImdpdGh1Yi5jb20ifQ==">
 
     <meta name="enabled-features" content="UNIVERSE_BANNER,FREE_TRIALS,MARKETPLACE_INSIGHTS,MARKETPLACE_SELF_SERVE,MARKETPLACE_INSIGHTS_CONVERSION_PERCENTAGES">
 
-  <meta name="html-safe-nonce" content="3be1d58a29f5b3b2259e8d0025ac09bd1bf70ad3">
+  <meta name="html-safe-nonce" content="1f044f55335028adb62078f09d4af012432be6e5">
 
-  <meta http-equiv="x-pjax-version" content="402da7acb22ff2e9e7f63736b021d40d">
+  <meta http-equiv="x-pjax-version" content="10c80ea533591cecc9bf0d03e9bbdc45">
   
 
-      <link data-pjax-transient rel="alternate" type="text/x-diff" href="https://patch-diff.githubusercontent.com/raw/openmrs/openmrs-standalone/pull/32.diff">
-  <link data-pjax-transient rel="alternate" type="text/x-patch" href="https://patch-diff.githubusercontent.com/raw/openmrs/openmrs-standalone/pull/32.patch">
+      <link data-pjax-transient rel="alternate" type="text/x-diff" href="https://patch-diff.githubusercontent.com/raw/openmrs/openmrs-core/pull/2654.diff">
+  <link data-pjax-transient rel="alternate" type="text/x-patch" href="https://patch-diff.githubusercontent.com/raw/openmrs/openmrs-core/pull/2654.patch">
 
   <meta name="diff-view" content="split" data-pjax-transient>
-  <link href="https://github.com/openmrs/openmrs-standalone/commits/STAND-79.atom" rel="alternate" title="Recent Commits to openmrs-standalone:STAND-79" type="application/atom+xml">
+  <link href="https://github.com/openmrs/openmrs-core/commits/TRUNK-5382.atom" rel="alternate" title="Recent Commits to openmrs-core:TRUNK-5382" type="application/atom+xml">
       <meta name="robots" content="noindex, nofollow" />
 
-  <meta name="description" content="Description of what I changed
-This change updates the documentation for the standalone application to reflect the current password in the web app. More details and conversations of this can be found here
+  <meta name="description" content="TRUNK-5382 Extra utility method for excluding retired concepts while fetching setmembers
+Description of what I changed
+Created utility method called getSetMembers(boolean includeRetired). If includeRetired is true it returns the same as getSetMembers(), if false it should return excluding retired members.
 Issue I worked on
-STAND-79
-Checklist:
+see https://issues.openmrs.org/browse/TRUNK-5382
+Checklist: I completed these to help reviewers :)
 
 
- My pull request only contains ONE single commit
+[x ] My pull request only contains ONE single commit
+(the number above, next to the...">
+  <meta name="go-import" content="github.com/openmrs/openmrs-core git https://github.com/openmrs/openmrs-core.git">
 
-
- My pull request is based on the latest changes of the master branch.">
-  <meta name="go-import" content="github.com/openmrs/openmrs-standalone git https://github.com/openmrs/openmrs-standalone.git">
-
-  <meta name="octolytics-dimension-user_id" content="860776" /><meta name="octolytics-dimension-user_login" content="openmrs" /><meta name="octolytics-dimension-repository_id" content="9200203" /><meta name="octolytics-dimension-repository_nwo" content="openmrs/openmrs-standalone" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="9200203" /><meta name="octolytics-dimension-repository_network_root_nwo" content="openmrs/openmrs-standalone" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
+  <meta name="octolytics-dimension-user_id" content="860776" /><meta name="octolytics-dimension-user_login" content="openmrs" /><meta name="octolytics-dimension-repository_id" content="5187976" /><meta name="octolytics-dimension-repository_nwo" content="openmrs/openmrs-core" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="5187976" /><meta name="octolytics-dimension-repository_network_root_nwo" content="openmrs/openmrs-core" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
 
 
 
@@ -161,9 +177,9 @@ Checklist:
       <div class="d-flex">
             <div class="">
               <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
-  <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" data-scoped-search-url="/openmrs/openmrs-standalone/search" data-unscoped-search-url="/search" action="https://github.com/openmrs/openmrs-standalone/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" data-scoped-search-url="/openmrs/openmrs-core/search" data-unscoped-search-url="/search" action="https://github.com/openmrs/openmrs-core/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
     <label class="form-control header-search-wrapper  js-chromeless-input-container">
-          <a class="header-search-scope no-underline" href="ce951ca08bf480d6eeef6c7aac72f579311198ff.html">This repository</a>
+          <a class="header-search-scope no-underline" href="2a12d69748d3c502d3c4af471679dd81e05e5b9d.html">This repository</a>
       <input type="text"
         class="form-control header-search-input  js-site-search-focus js-site-search-field is-clearable"
         data-hotkey="s,/"
@@ -207,7 +223,7 @@ Checklist:
   <li class="dropdown js-menu-container">
     <span class="d-inline-block  px-2">
       
-    <a aria-label="You have unread notifications" class="notification-indicator tooltipped tooltipped-s  js-socket-channel js-notification-indicator" data-hotkey="g n" data-ga-click="Header, go to notifications, icon:unread" data-channel="notification-changed:13240317" href="https://github.com/notifications">
+    <a aria-label="You have unread notifications" class="notification-indicator tooltipped tooltipped-s  js-socket-channel js-notification-indicator" data-hotkey="g n" data-ga-click="Header, go to notifications, icon:unread" data-channel="notification-changed:3847723" href="https://github.com/notifications">
         <span class="mail-status unread"></span>
         <svg class="octicon octicon-bell" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"/></svg>
 </a>
@@ -283,7 +299,7 @@ Checklist:
           Settings
         </a></li>
 
-        <li><!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="https://github.com/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="19BH6A8LZT2L8OqDMu4kAS7uLViILiguJ+LKTHYJ0gfWWUICxHLdYaDc6M2Hp7TaOCC8ClT4aVllW9uDMdRFpQ==" />
+        <li><!-- '"` --><!-- </textarea></xmp> --></option></form><form class="logout-form" action="https://github.com/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="RnXSElu9rcPqxg9+qm+zUZSwHGE3y1qBqwkmHg/JdypqHHKFMG85Lq/EbuDviToMn7hXMVmTmGf/sji+VrSFZQ==" />
           <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -295,7 +311,7 @@ Checklist:
 
 
 
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="sr-only right-0" action="https://github.com/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="OJ1cWtMyN1yQ/zcP9cSi8PbH3M+53dwGe7KxDlpx0oU5FFmwGEuPALvTNUFAjTIr4AlNnWULnXE5C6DBHaxFJw==" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="sr-only right-0" action="https://github.com/logout" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="0Bxax+yVhWk4/vbEssKCLMkBq1YMQDZlUkvzmxRo7zv8dfpQh0cRhH38l1r3JAtxwgngBmIY9IMG8O07TRUddA==" />
           <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
             Sign out
           </button>
@@ -305,34 +321,6 @@ Checklist:
 </header>
 
       
-<div class="flash flash-full js-notice flash-warn">
-<div class="container">
-      <h4>
-        You don’t have any verified emails.  We recommend <a href="https://github.com/settings/emails">verifying</a> at least one email.
-      </h4>
-      Email verification helps our support team verify ownership if you lose account access
-        and allows you to receive all the notifications you ask for.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-</div>
 
   </div>
 
@@ -361,10 +349,10 @@ Checklist:
 
       <ul class="pagehead-actions">
   <li>
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-autosubmit="true" data-remote="true" class="js-social-container" action="https://github.com/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="jgp2ZdkeHK8USDcfY57eCJ64Fp18pcs0QaDfhbXvdKXJYAISrrLQqrCEFGQ/zMEgpu9cjUQusXHAzqeuu56iOw==" />      <input type="hidden" name="repository_id" id="repository_id" value="9200203" class="form-control" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form data-autosubmit="true" data-remote="true" class="js-social-container" action="https://github.com/notifications/subscribe" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="HtCSpdSjqE8j6/ASumdpnMFuBGxYUOiD3hND3MtqpWmJnFibi3/VpT/a9a6kcvdb2FoJ95h/pStps5NQGP4CsA==" />      <input type="hidden" name="repository_id" id="repository_id" value="5187976" class="form-control" />
 
         <div class="select-menu js-menu-container js-select-menu">
-          <a href="https://github.com/openmrs/openmrs-standalone/subscription"
+          <a href="https://github.com/openmrs/openmrs-core/subscription"
             class="btn btn-sm btn-with-count select-menu-button js-menu-target"
             role="button"
             aria-haspopup="true"
@@ -377,9 +365,9 @@ Checklist:
             </span>
           </a>
           <a class="social-count js-social-count"
-            href="https://github.com/openmrs/openmrs-standalone/watchers"
-            aria-label="71 users are watching this repository">
-            71
+            href="https://github.com/openmrs/openmrs-core/watchers"
+            aria-label="129 users are watching this repository">
+            129
           </a>
 
         <div class="select-menu-modal-holder">
@@ -441,54 +429,61 @@ Checklist:
   <li>
     
   <div class="js-toggler-container js-social-container starring-container ">
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="https://github.com/openmrs/openmrs-standalone/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="THiv9SgbNGKnhCU+5NfKJHXzZsGm6e7xESKInEeoK/avhYrSh/GbF4H5Qtvgvac9KK8eQUXO+FJMBk+nRHxWeA==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="starred js-social-form" action="https://github.com/openmrs/openmrs-core/unstar" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="8Uh8EABhKRXN6q4NbdqNLRlyh5Vqb4mfgYtEhns2Zy5bcBmKUqYJb0xk7PWo91gyj/uYcIiM8wk2bWdD4Q/Grg==" />
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
         class="btn btn-sm btn-with-count js-toggler-target"
-        aria-label="Unstar this repository" title="Unstar openmrs/openmrs-standalone"
+        aria-label="Unstar this repository" title="Unstar openmrs/openmrs-core"
         data-ga-click="Repository, click unstar button, action:pull_requests#show; text:Unstar">
         <svg class="octicon octicon-star" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
         Unstar
       </button>
-        <a class="social-count js-social-count" href="https://github.com/openmrs/openmrs-standalone/stargazers"
-           aria-label="10 users starred this repository">
-          10
+        <a class="social-count js-social-count" href="https://github.com/openmrs/openmrs-core/stargazers"
+           aria-label="639 users starred this repository">
+          639
         </a>
 </form>
-    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="https://github.com/openmrs/openmrs-standalone/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="5F2XPQ4ZuVPzcehYrN4YaPBeaNGInlRssdJJ1q4vdhrtVHxXBPMxGDJuDl8CRlJx7VATOYSdHHZ+XLoSTIssEQ==" />
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="unstarred js-social-form" action="https://github.com/openmrs/openmrs-core/star" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="Cx/xHBhEfrVnC7C/8tOuHNY/yYwWjgB/QBsdqks3sFu1ZO4m3jSaKYO91m/m3H/SryIyp7vXkoWcRoVGxISzkQ==" />
       <input type="hidden" name="context" value="repository"></input>
       <button
         type="submit"
         class="btn btn-sm btn-with-count js-toggler-target"
-        aria-label="Star this repository" title="Star openmrs/openmrs-standalone"
+        aria-label="Star this repository" title="Star openmrs/openmrs-core"
         data-ga-click="Repository, click star button, action:pull_requests#show; text:Star">
         <svg class="octicon octicon-star" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
         Star
       </button>
-        <a class="social-count js-social-count" href="https://github.com/openmrs/openmrs-standalone/stargazers"
-           aria-label="10 users starred this repository">
-          10
+        <a class="social-count js-social-count" href="https://github.com/openmrs/openmrs-core/stargazers"
+           aria-label="639 users starred this repository">
+          639
         </a>
 </form>  </div>
 
   </li>
 
   <li>
-          <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="btn-with-count" action="https://github.com/openmrs/openmrs-standalone/fork" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="WAxs/0bTtNsWy649MFwNI3OvkrSEy/xx9zFxHNg0eGCi+/1OkvW5pFTKY7/W2OipxsUlWCtm73VMf9j7VLUWzA==" />
-            <button
-                type="submit"
-                class="btn btn-sm btn-with-count"
-                data-ga-click="Repository, show fork modal, action:pull_requests#show; text:Fork"
-                title="Fork your own copy of openmrs/openmrs-standalone to your account"
-                aria-label="Fork your own copy of openmrs/openmrs-standalone to your account">
+          <a href="#fork-destination-box" class="btn btn-sm btn-with-count"
+              title="Fork your own copy of openmrs/openmrs-core to your account"
+              aria-label="Fork your own copy of openmrs/openmrs-core to your account"
+              rel="facebox"
+              data-ga-click="Repository, show fork modal, action:pull_requests#show; text:Fork">
               <svg class="octicon octicon-repo-forked" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
-              Fork
-            </button>
-</form>
-    <a href="https://github.com/openmrs/openmrs-standalone/network" class="social-count"
-       aria-label="51 users forked this repository">
-      51
+            Fork
+          </a>
+
+          <div id="fork-destination-box" style="display: none;">
+            <h2 class="facebox-header" data-facebox-id="facebox-header">Where should we fork this repository?</h2>
+            <include-fragment src="#"
+                class="js-fork-select-fragment fork-select-fragment"
+                data-url="/openmrs/openmrs-core/fork?fragment=1">
+              <img alt="Loading" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" width="64" height="64" />
+            </include-fragment>
+          </div>
+
+    <a href="https://github.com/openmrs/openmrs-core/network" class="social-count"
+       aria-label="2100 users forked this repository">
+      2,100
     </a>
   </li>
 </ul>
@@ -497,7 +492,7 @@ Checklist:
   <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
   <span class="author" itemprop="author"><a class="url fn" rel="author" href="https://github.com/openmrs">openmrs</a></span><!--
 --><span class="path-divider">/</span><!--
---><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="https://github.com/openmrs/openmrs-standalone">openmrs-standalone</a></strong>
+--><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="https://github.com/openmrs/openmrs-core">openmrs-core</a></strong>
 
 </h1>
 
@@ -510,7 +505,7 @@ Checklist:
      data-pjax="#js-repo-pjax-container">
 
   <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a class="js-selected-navigation-item reponav-item" itemprop="url" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /openmrs/openmrs-standalone" href="https://github.com/openmrs/openmrs-standalone">
+    <a class="js-selected-navigation-item reponav-item" itemprop="url" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /openmrs/openmrs-core" href="https://github.com/openmrs/openmrs-core">
       <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
       <span itemprop="name">Code</span>
       <meta itemprop="position" content="1">
@@ -518,17 +513,17 @@ Checklist:
 
 
   <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item selected reponav-item" data-selected-links="repo_pulls checks /openmrs/openmrs-standalone/pulls" href="https://github.com/openmrs/openmrs-standalone/pulls">
+    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item selected reponav-item" data-selected-links="repo_pulls checks /openmrs/openmrs-core/pulls" href="https://github.com/openmrs/openmrs-core/pulls">
       <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
       <span itemprop="name">Pull requests</span>
-      <span class="Counter">1</span>
+      <span class="Counter">38</span>
       <meta itemprop="position" content="3">
 </a>  </span>
 
 
 
 
-  <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse /openmrs/openmrs-standalone/pulse" href="https://github.com/openmrs/openmrs-standalone/pulse">
+  <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse /openmrs/openmrs-core/pulse" href="https://github.com/openmrs/openmrs-core/pulse">
     <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
     Insights
 </a>
@@ -551,8 +546,8 @@ Checklist:
   <div
     id="partial-discussion-header"
     class="gh-header js-details-container Details js-socket-channel js-updatable-content pull request"
-    data-channel="pull_request:169853982"
-    data-url="/openmrs/openmrs-standalone/pull/32/show_partial?partial=pull_requests%2Ftitle">
+    data-channel="pull_request:181053772"
+    data-url="/openmrs/openmrs-core/pull/2654/show_partial?partial=pull_requests%2Ftitle">
 
   <div class="gh-header-show gh-header-no-access">
       <div class="gh-header-actions">
@@ -561,9 +556,9 @@ Checklist:
 
     <h1 class="gh-header-title">
       <span class="js-issue-title">
-        STAND-79 - Updating password in documentation.
+        TRUNK-5382 add extra utility method to exclude retired concepts
       </span>
-      <span class="gh-header-number">#32</span>
+      <span class="gh-header-number">#2654</span>
     </h1>
   </div>
 
@@ -576,15 +571,15 @@ Checklist:
         </div>
     </div>
     <div class="TableObject-item TableObject-item--primary">
-          <a class="author pull-header-username css-truncate css-truncate-target expandable" data-hovercard-user-id="3847723" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jody">jody</a>
+          <a class="author pull-header-username css-truncate css-truncate-target expandable" data-hovercard-user-id="12665751" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/saidrobley">saidrobley</a>
    wants to merge 1 commit into
 
 
 
-  <span title="openmrs/openmrs-standalone:master" class="commit-ref css-truncate user-select-contain expandable base-ref"><span class="css-truncate-target user">openmrs</span>:<span class="css-truncate-target">master</span></span>
+  <span title="openmrs/openmrs-core:master" class="commit-ref css-truncate user-select-contain expandable base-ref"><span class="css-truncate-target user">openmrs</span>:<span class="css-truncate-target">master</span></span>
 
   <div class="commit-ref-dropdown">
-    <div class="select-menu js-menu-container js-select-menu commitish-suggester js-load-contents" data-contents-url="/openmrs/openmrs-standalone/pull/32/show_partial?partial=pull_requests%2Fdescription_branches_dropdown">
+    <div class="select-menu js-menu-container js-select-menu commitish-suggester js-load-contents" data-contents-url="/openmrs/openmrs-core/pull/2654/show_partial?partial=pull_requests%2Fdescription_branches_dropdown">
       <button class="btn btn-sm select-menu-button js-menu-target branch" type="button" aria-label="Choose a base branch" aria-haspopup="true" aria-expanded="false">
         <i>base:</i>
         <span class="js-select-button css-truncate css-truncate-target" title="base: master">master</span>
@@ -602,7 +597,7 @@ Checklist:
 
 from
 
-<span title="OpenFOSS/openmrs-standalone:STAND-79" class="commit-ref css-truncate user-select-contain expandable head-ref"><span class="css-truncate-target user">OpenFOSS</span>:<span class="css-truncate-target">STAND-79</span></span>
+<span title="saidrobley/openmrs-core:TRUNK-5382" class="commit-ref css-truncate user-select-contain expandable head-ref"><span class="css-truncate-target user">saidrobley</span>:<span class="css-truncate-target">TRUNK-5382</span></span>
 
 
 
@@ -614,13 +609,13 @@ from
 <div class="tabnav tabnav-pr">
 
   <nav class="tabnav-tabs">
-      <link rel="pjax-prefetch" href="../../32.html">
-    <a href="../../32.html" class="tabnav-tab  js-pjax-history-navigate">
+      <link rel="pjax-prefetch" href="../../2654.html">
+    <a href="../../2654.html" class="tabnav-tab  js-pjax-history-navigate">
       <svg class="octicon octicon-comment-discussion" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15 1H6c-.55 0-1 .45-1 1v2H1c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h1v3l3-3h4c.55 0 1-.45 1-1V9h1l3 3V9h1c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM9 11H4.5L3 12.5V11H1V5h4v3c0 .55.45 1 1 1h3v2zm6-3h-2v1.5L11.5 8H6V2h9v6z"/></svg>
       Conversation
 
       <span id="conversation_tab_counter" class="Counter">
-        0
+        12
       </span>
     </a>
 
@@ -639,7 +634,7 @@ from
       Files changed
 
         <span id="files_tab_counter" class="Counter">
-            1
+            3
         </span>
     </a>
   </nav>
@@ -652,7 +647,7 @@ from
 
 <div class="diffbar-item">
   <div class="diffbar-range-menu select-menu js-menu-container js-select-menu "
-    data-range-url="/openmrs/openmrs-standalone/pull/32/files/$range">
+    data-range-url="/openmrs/openmrs-core/pull/2654/files/$range">
     <div class="js-select-button">
       <button type="button" class="btn-link muted-link select-menu-button js-menu-target" aria-expanded="false" aria-haspopup="true" data-hotkey="c">
         Changes from
@@ -694,16 +689,16 @@ from
           </div>
 
           <div class="js-diffbar-commits-list">
-              <a href="ce951ca08bf480d6eeef6c7aac72f579311198ff.html"
+              <a href="2a12d69748d3c502d3c4af471679dd81e05e5b9d.html"
                 class="select-menu-item js-navigation-item js-navigation-open " role="menuitem"
-                data-commit="ce951ca" >
+                data-commit="2a12d69" >
                 <div class="select-menu-item-text">
-                  <code class="float-right">ce951ca</code>
+                  <code class="float-right">2a12d69</code>
                   <div class="text-emphasized css-truncate css-truncate-target">
-                    STAND-79 - Updating password in documentation.
+                    TRUNK-5382 add extra utility method to exclude retired concepts
                   </div>
                   <span class="description">
-                    jody <relative-time datetime="2018-02-18T22:22:23Z">Feb 18, 2018</relative-time>
+                    saidrobley <relative-time datetime="2018-04-15T14:56:53Z">Apr 15, 2018</relative-time>
                   </span>
                 </div>
               </a>
@@ -716,7 +711,7 @@ from
 
               
 
-<div class="diffbar-item toc-select select-menu js-menu-container js-select-menu js-load-contents" data-contents-url="/openmrs/openmrs-standalone/pull/32/show_toc?base_sha=5b99613f0bffb1ab3ffd50123096c7aa265d6620&amp;sha1=5b99613f0bffb1ab3ffd50123096c7aa265d6620&amp;sha2=ce951ca08bf480d6eeef6c7aac72f579311198ff">
+<div class="diffbar-item toc-select select-menu js-menu-container js-select-menu js-load-contents" data-contents-url="/openmrs/openmrs-core/pull/2654/show_toc?base_sha=57d54fb44604e285f360ca315389beb821edd1c6&amp;sha1=57d54fb44604e285f360ca315389beb821edd1c6&amp;sha2=2a12d69748d3c502d3c4af471679dd81e05e5b9d">
   <button type="button" class="btn-link muted-link select-menu-button js-menu-target" aria-expanded="false" aria-haspopup="true" data-hotkey="t" data-ga-click="Pull Requests, open table of contents, type:semantic">
       <strong>Jump to…</strong>
   </button>
@@ -743,22 +738,22 @@ from
 
               <span class="diffbar-item diffstat">
   <span class="text-green">
-    +1
+    +266
   </span>
   <span class="text-red">
-    −1
+    −153
   </span>
-  <span class="tooltipped tooltipped-s" aria-label="2 lines changed">
-    <span class="block-diff-added"></span><span class="block-diff-deleted"></span><span class="block-diff-neutral"></span><span class="block-diff-neutral"></span><span class="block-diff-neutral"></span>
+  <span class="tooltipped tooltipped-s" aria-label="419 lines changed">
+    <span class="block-diff-added"></span><span class="block-diff-added"></span><span class="block-diff-added"></span><span class="block-diff-deleted"></span><span class="block-diff-neutral"></span>
   </span>
 </span>
 
 
             <div class="float-right pr-review-tools">
-              <div class="diffbar-item">
+                <div class="diffbar-item">
   <div class="BtnGroup">
-      <a class="btn btn-sm btn-outline BtnGroup-item tooltipped tooltipped-s" href="ce951ca08bf480d6eeef6c7aac72f579311198ffab96.html?diff=unified" aria-label="View diff in unified mode">Unified</a>
-      <button type="button" class="btn btn-sm btn-outline BtnGroup-item tooltipped tooltipped-s bg-gray-light text-gray-light" href="ce951ca08bf480d6eeef6c7aac72f579311198ff5998.html?diff=split" aria-label="Viewing diff in split mode" disabled>Split</button>
+      <a class="btn btn-sm btn-outline BtnGroup-item tooltipped tooltipped-s" href="2a12d69748d3c502d3c4af471679dd81e05e5b9dab96.html?diff=unified" aria-label="View diff in unified mode">Unified</a>
+      <button type="button" class="btn btn-sm btn-outline BtnGroup-item tooltipped tooltipped-s bg-gray-light text-gray-light" href="2a12d69748d3c502d3c4af471679dd81e05e5b9d5998.html?diff=split" aria-label="Viewing diff in split mode" disabled>Split</button>
   </div>
 </div>
 
@@ -773,8 +768,8 @@ from
     </button>
     <div class="dropdown-menu-content js-menu-content" id="submit-review">
       <div class="pull-request-review-menu dropdown-menu dropdown-menu-sw p-0">
-        <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="https://github.com/openmrs/openmrs-standalone/pull/32/reviews" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="Uf0Vx+w7+3oEaMCSK0nUOtDQ8V/kBEB53r8F9OfAWnUhctKWWuaWgPGtEbBxTRhMHSA+l9cwhaumz9RaM8ycCA==" />
-  <input type="hidden" name="head_sha" id="head_sha" value="ce951ca08bf480d6eeef6c7aac72f579311198ff" class="form-control" />
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="https://github.com/openmrs/openmrs-core/pull/2654/reviews" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="3dht9C5bzTlNMK+RLv/s7ppV0Soc1ECmbrb+pAqtYNxR4ZTSBm4NQ8v/N447LEKD9ldrJm+yPu7b3+P3flF1dw==" />
+  <input type="hidden" name="head_sha" id="head_sha" value="2a12d69748d3c502d3c4af471679dd81e05e5b9d" class="form-control" />
     <div class="select-menu-header mb-2 px-2">
       <svg class="octicon octicon-x js-menu-close" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
       <div class="select-menu-title text-small">
@@ -792,7 +787,7 @@ from
       </div>
     </div>
     <label class="d-block m-2" for="pull_request_review_body">Review summary</label>
-  <div class="js-suggester-container popover-comment-form js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview?markdown_unsupported=false&amp;repository=9200203&amp;subject=32&amp;subject_type=PullRequest" data-preview-authenticity-token="zSMjY2VbjlgpadMOfvfweRXjGSMVALIUpX1JwdWX4huxnUKcXSGbawcgUSFYtJnuIR+YPAYNyXM5CQRNlXbQrg==">
+  <div class="js-suggester-container popover-comment-form js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview?markdown_unsupported=false&amp;repository=5187976&amp;subject=2654&amp;subject_type=PullRequest" data-preview-authenticity-token="SlQd2pLq/VFdEw48XbqDVE0HzLUR+YZvUOwBIZQUUD9fKt9SqEUueWjh8zICBSF1rkr6g/Gt8fcJGr7X+5fMQQ==">
   <div class="comment-form-head tabnav">
   </div>
 
@@ -800,8 +795,8 @@ from
   <div class="comment-form-error js-comment-form-error" style="display:none">    There was an error creating your PullRequest.
 </div>
   <div class="write-content js-write-bucket js-uploadable-container js-upload-markdown-image is-default "
-      data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="+A2rnHWqztUQ7BCpKQThBlX2aMyhw1vrXZ3V3y1uPJ7G4Rm7+oocSwh8rpxWX48bA4TR1SPNvTTzgwCvyAwCjQ=="
-        data-upload-repository-id="9200203"
+      data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="hiyvjWO6LWwEITdX+AdccfXHjtFcBamv7KfRCSruRUyfc7eR5nPe/CO8Zfitqtj3zb7Skzlwq7vtMF3t2gxsHA=="
+        data-upload-repository-id="5187976"
       >
 
     <input type="hidden" name="saved_reply_id" class="js-saved-reply-id js-resettable-field" value="" data-reset-value="">
@@ -817,9 +812,9 @@ from
 
     <div class="suggester-container">
       <div class="suggester js-suggester js-navigation-container"
-           data-url="/suggestions/pull_request/169853982?repository=openmrs-standalone&amp;user_id=openmrs"
-           data-log-mention-url="/suggestions/log_mention?repository=openmrs-standalone&amp;user_id=openmrs"
-           data-log-mention-authenticity-token="xtYc5u+xMoWH9DIRFAK6mS5gggcwvukSlZwwHiNwk74ITSv+ic7KwvvG99+YgV8f7dC3Hsh57a8ibj3iQYllzQ=="
+           data-url="/suggestions/pull_request/181053772?repository=openmrs-core&amp;user_id=openmrs"
+           data-log-mention-url="/suggestions/log_mention?repository=openmrs-core&amp;user_id=openmrs"
+           data-log-mention-authenticity-token="6vJ83clUGDTac9ulcG8TwdMEzcsq1o9w+p44BTJg2d9ucQS9hmKGJQRMngOfEI1IXMQcUOn/DzrdQs8yJhNd3A=="
            >
       </div>
     </div>
@@ -877,7 +872,7 @@ from
 
             </div>
 
-                  <div class="js-socket-channel js-updatable-content js-pull-refresh-on-pjax" data-channel="pull_request:169853982" data-url="/openmrs/openmrs-standalone/pull/32/show_partial_comparison?base_commit_oid=5b99613f0bffb1ab3ffd50123096c7aa265d6620&amp;end_commit_oid=ce951ca08bf480d6eeef6c7aac72f579311198ff&amp;partial=pull_requests%2Fstale_comparison&amp;start_commit_oid=5b99613f0bffb1ab3ffd50123096c7aa265d6620"></div>
+                  <div class="js-socket-channel js-updatable-content js-pull-refresh-on-pjax" data-channel="pull_request:181053772" data-url="/openmrs/openmrs-core/pull/2654/show_partial_comparison?base_commit_oid=57d54fb44604e285f360ca315389beb821edd1c6&amp;end_commit_oid=2a12d69748d3c502d3c4af471679dd81e05e5b9d&amp;partial=pull_requests%2Fstale_comparison&amp;start_commit_oid=57d54fb44604e285f360ca315389beb821edd1c6"></div>
 
 
             <div class="modal-backdrop js-touch-events"></div>
@@ -889,12 +884,12 @@ from
 <div class="commit full-commit prh-commit px-2 pt-2 ">
 
     <p class="commit-title">
-      STAND-79 - Updating password in documentation.
+      TRUNK-5382 add extra utility method to exclude retired concepts
     </p>
 
 
   <div class="commit-branches">
-  <include-fragment src="https://github.com/openmrs/openmrs-standalone/branch_commits/ce951ca08bf480d6eeef6c7aac72f579311198ff">
+  <include-fragment src="https://github.com/openmrs/openmrs-core/branch_commits/2a12d69748d3c502d3c4af471679dd81e05e5b9d">
     <svg class="octicon octicon-git-branch" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
     <ul class="branches-list">
       <li class="loading">Loading branch information<span class="animated-ellipsis-container"><span class="animated-ellipsis">...</span></span></li>
@@ -905,28 +900,28 @@ from
   <div class="commit-meta clearfix p-2 no-wrap d-flex flex-items-center">
     
 <div class="AvatarStack flex-self-start ">
-  <div class="AvatarStack-body" aria-label="jody">
+  <div class="AvatarStack-body" aria-label="saidrobley">
 
-        <a class="avatar" data-skip-pjax="true" data-hovercard-user-id="3847723" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/jody">
-          <img height="20" width="20" alt="@jody" src="https://avatars0.githubusercontent.com/u/3847723?s=60&amp;v=4" />
+        <a class="avatar" data-skip-pjax="true" data-hovercard-user-id="12665751" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/saidrobley">
+          <img height="20" width="20" alt="@saidrobley" src="https://avatars2.githubusercontent.com/u/12665751?s=60&amp;v=4" />
 </a>  </div>
 </div>
 
     <div class="flex-auto">
       
-      <a href="https://github.com/openmrs/openmrs-standalone/commits?author=jody"
+      <a href="https://github.com/openmrs/openmrs-core/commits?author=saidrobley"
      class="commit-author tooltipped tooltipped-s user-mention"
-     aria-label="View all commits by jody">jody</a>
+     aria-label="View all commits by saidrobley">saidrobley</a>
 
 
   committed
-  <relative-time datetime="2018-02-18T22:22:23Z">Feb 18, 2018</relative-time>
+  <relative-time datetime="2018-04-15T14:56:53Z">Apr 15, 2018</relative-time>
 
       
 
     </div>
     <span class="float-right">
-      <span class="sha-block">commit <span class="sha user-select-contain">ce951ca08bf480d6eeef6c7aac72f579311198ff</span></span>
+      <span class="sha-block">commit <span class="sha user-select-contain">2a12d69748d3c502d3c4af471679dd81e05e5b9d</span></span>
     </span>
   </div>
 </div>
@@ -952,21 +947,21 @@ from
   </div>
 
   <div class="inline-comment-form">
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-inline-comment-form" action="https://github.com/openmrs/openmrs-standalone/pull/32/review_comment/create" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="sowcAwdOAwwRS3/rLUDOpS4kIMsAqopSg4UxDMgsU7Du2koEcinBDMgmdnSCaZ4Ro0xYAKsRCbKzttA8wAdChg==" />
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-inline-comment-form" action="https://github.com/openmrs/openmrs-core/pull/2654/review_comment/create" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="AtGnJNyuxMxwXf1s4HG2j77Qskdta1oaqdXcAqte6xVvuB2MeVbDcpk7AiSUnh7blcAd4pr7HIJiwWj6elyECA==" />
         <input type="hidden" name="comment_context" value="diff">
 
-            <input type="hidden" name="commit_id" value="ce951ca08bf480d6eeef6c7aac72f579311198ff">
-            <input type="hidden" name="comparison_start_oid" value="5b99613f0bffb1ab3ffd50123096c7aa265d6620">
-            <input type="hidden" name="comparison_end_oid" value="ce951ca08bf480d6eeef6c7aac72f579311198ff">
-            <input type="hidden" name="comparison_base_oid" value="5b99613f0bffb1ab3ffd50123096c7aa265d6620">
+            <input type="hidden" name="commit_id" value="2a12d69748d3c502d3c4af471679dd81e05e5b9d">
+            <input type="hidden" name="comparison_start_oid" value="57d54fb44604e285f360ca315389beb821edd1c6">
+            <input type="hidden" name="comparison_end_oid" value="2a12d69748d3c502d3c4af471679dd81e05e5b9d">
+            <input type="hidden" name="comparison_base_oid" value="57d54fb44604e285f360ca315389beb821edd1c6">
             <input type="hidden" name="side" value="">
             <input type="hidden" name="line" value="">
           <input type="hidden" name="path" value="">
           <input type="hidden" name="position" value="">
 
-        <div class="js-suggester-container  js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview?markdown_unsupported=false&amp;repository=9200203&amp;subject=32&amp;subject_type=PullRequest" data-preview-authenticity-token="92Q2FXzpbIHGiXJojwiJySCQftDtKPlimc6gLwNlIVOL2lfqRJN5sujA8EepS+BeFGz/z/4lggUFuu2jQ4QT5g==">
+        <div class="js-suggester-container  js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview?markdown_unsupported=false&amp;repository=5187976&amp;subject=2654&amp;subject_type=PullRequest" data-preview-authenticity-token="ZhklMZlmLSkVjwY3zCyn7tIfHFPcQQrWOzWHxdXgHKBzZ+e5o8n+ASB9+zmTkwXPMVIqZTwVfU5iwzgzumOA3g==">
   <div class="comment-form-head tabnav">
-      <markdown-toolbar for="r413351 new_inline_comment_diff_${anchor}_${position}" data-saved-reply-contents-url="/settings/replies?context=pull_request_comment"><svg class="octicon octicon-text-size d-none" viewBox="0 0 18 16" version="1.1" width="18" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.62 9.08L12.1 3.66h-.06l-1.5 5.42h3.08zM5.7 10.13S4.68 6.52 4.53 6.02h-.08l-1.13 4.11H5.7zM17.31 14h-2.25l-.95-3.25h-4.07L9.09 14H6.84l-.69-2.33H2.87L2.17 14H0l3.3-9.59h2.5l2.17 6.34L10.86 2h2.52l3.94 12h-.01z"/></svg><svg class="octicon octicon-bold d-none" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1 2h3.83c2.48 0 4.3.75 4.3 2.95 0 1.14-.63 2.23-1.67 2.61v.06c1.33.3 2.3 1.23 2.3 2.86 0 2.39-1.97 3.52-4.61 3.52H1V2zm3.66 4.95c1.67 0 2.38-.66 2.38-1.69 0-1.17-.78-1.61-2.34-1.61H3.13v3.3h1.53zm.27 5.39c1.77 0 2.75-.64 2.75-1.98 0-1.27-.95-1.81-2.75-1.81h-1.8v3.8h1.8v-.01z"/></svg><svg class="octicon octicon-italic d-none" viewBox="0 0 6 16" version="1.1" width="6" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.81 5h1.98L3 14H1l1.81-9zm.36-2.7c0-.7.58-1.3 1.33-1.3.56 0 1.13.38 1.13 1.03 0 .75-.59 1.3-1.33 1.3-.58 0-1.13-.38-1.13-1.03z"/></svg><svg class="octicon octicon-quote d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg><svg class="octicon octicon-code d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg><svg class="octicon octicon-link d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg><svg class="octicon octicon-list-unordered d-none" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13c0 .59 0 1-.59 1H.59C0 14 0 13.59 0 13c0-.59 0-1 .59-1h.81c.59 0 .59.41.59 1H2zm2.59-9h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zM1.41 7H.59C0 7 0 7.41 0 8c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0-5H.59C0 2 0 2.41 0 3c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm10 5H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0 5H4.59C4 12 4 12.41 4 13c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01z"/></svg><svg class="octicon octicon-list-ordered d-none" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 13c0 .59 0 1-.59 1H4.59C4 14 4 13.59 4 13c0-.59 0-1 .59-1h6.81c.59 0 .59.41.59 1H12zM4.59 4h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zm6.81 3H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1zM2 1h-.72c-.3.19-.58.25-1.03.34V2H1v2.14H.16V5H3v-.86H2V1zm.25 8.13c-.17 0-.45.03-.66.06.53-.56 1.14-1.25 1.14-1.89C2.71 6.52 2.17 6 1.37 6c-.59 0-.97.2-1.38.64l.58.58c.19-.19.38-.38.64-.38.28 0 .48.16.48.52 0 .53-.77 1.2-1.7 2.06V10h3l-.09-.88h-.66l.01.01zm-.08 3.78v-.03c.44-.19.64-.47.64-.86 0-.7-.56-1.11-1.44-1.11-.48 0-.89.19-1.28.52l.55.64c.25-.2.44-.31.69-.31.27 0 .42.13.42.36 0 .27-.2.44-.86.44v.75c.83 0 .98.17.98.47 0 .25-.23.38-.58.38-.28 0-.56-.14-.81-.38l-.48.66c.3.36.77.56 1.41.56.83 0 1.53-.41 1.53-1.16 0-.5-.31-.81-.77-.94v.01z"/></svg><svg class="octicon octicon-tasklist d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15.41 9H7.59C7 9 7 8.59 7 8c0-.59 0-1 .59-1h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM9.59 4C9 4 9 3.59 9 3c0-.59 0-1 .59-1h5.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H9.59zM0 3.91l1.41-1.3L3 4.2 7.09 0 8.5 1.41 3 6.91l-3-3zM7.59 12h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H7.59C7 14 7 13.59 7 13c0-.59 0-1 .59-1z"/></svg><svg class="octicon octicon-reply d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 3.5c3.92.44 8 3.125 8 10-2.312-5.062-4.75-6-8-6V11L.5 5.5 6 0v3.5z"/></svg><svg class="octicon octicon-x js-menu-close d-none" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg><svg class="octicon octicon-octoface d-none" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"/></svg><svg class="octicon octicon-mention d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.58 15c1.25 0 2.52-.31 3.56-.94l-.42-.94c-.84.52-1.89.83-3.03.83-3.23 0-5.64-2.08-5.64-5.72 0-4.37 3.23-7.18 6.58-7.18 3.45 0 5.22 2.19 5.22 5.2 0 2.39-1.34 3.86-2.5 3.86-1.05 0-1.36-.73-1.05-2.19l.73-3.75H8.98l-.11.72c-.41-.63-.94-.83-1.56-.83-2.19 0-3.66 2.39-3.66 4.38 0 1.67.94 2.61 2.3 2.61.84 0 1.67-.53 2.3-1.25.11.94.94 1.45 1.98 1.45 1.67 0 3.77-1.67 3.77-5C14 2.61 11.59 0 7.83 0 3.66 0 0 3.33 0 8.33 0 12.71 2.92 15 6.58 15zm-.31-5c-.73 0-1.36-.52-1.36-1.67 0-1.45.94-3.22 2.41-3.22.52 0 .84.2 1.25.83l-.52 3.02c-.63.73-1.25 1.05-1.78 1.05V10z"/></svg><svg class="octicon octicon-bookmark d-none" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg></markdown-toolbar>
+      <markdown-toolbar for="r57804 new_inline_comment_diff_${anchor}_${position}" data-saved-reply-contents-url="/settings/replies?context=pull_request_comment"><svg class="octicon octicon-text-size d-none" viewBox="0 0 18 16" version="1.1" width="18" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.62 9.08L12.1 3.66h-.06l-1.5 5.42h3.08zM5.7 10.13S4.68 6.52 4.53 6.02h-.08l-1.13 4.11H5.7zM17.31 14h-2.25l-.95-3.25h-4.07L9.09 14H6.84l-.69-2.33H2.87L2.17 14H0l3.3-9.59h2.5l2.17 6.34L10.86 2h2.52l3.94 12h-.01z"/></svg><svg class="octicon octicon-bold d-none" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1 2h3.83c2.48 0 4.3.75 4.3 2.95 0 1.14-.63 2.23-1.67 2.61v.06c1.33.3 2.3 1.23 2.3 2.86 0 2.39-1.97 3.52-4.61 3.52H1V2zm3.66 4.95c1.67 0 2.38-.66 2.38-1.69 0-1.17-.78-1.61-2.34-1.61H3.13v3.3h1.53zm.27 5.39c1.77 0 2.75-.64 2.75-1.98 0-1.27-.95-1.81-2.75-1.81h-1.8v3.8h1.8v-.01z"/></svg><svg class="octicon octicon-italic d-none" viewBox="0 0 6 16" version="1.1" width="6" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.81 5h1.98L3 14H1l1.81-9zm.36-2.7c0-.7.58-1.3 1.33-1.3.56 0 1.13.38 1.13 1.03 0 .75-.59 1.3-1.33 1.3-.58 0-1.13-.38-1.13-1.03z"/></svg><svg class="octicon octicon-quote d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg><svg class="octicon octicon-code d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg><svg class="octicon octicon-link d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg><svg class="octicon octicon-list-unordered d-none" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13c0 .59 0 1-.59 1H.59C0 14 0 13.59 0 13c0-.59 0-1 .59-1h.81c.59 0 .59.41.59 1H2zm2.59-9h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zM1.41 7H.59C0 7 0 7.41 0 8c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0-5H.59C0 2 0 2.41 0 3c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm10 5H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0 5H4.59C4 12 4 12.41 4 13c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01z"/></svg><svg class="octicon octicon-list-ordered d-none" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 13c0 .59 0 1-.59 1H4.59C4 14 4 13.59 4 13c0-.59 0-1 .59-1h6.81c.59 0 .59.41.59 1H12zM4.59 4h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zm6.81 3H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1zM2 1h-.72c-.3.19-.58.25-1.03.34V2H1v2.14H.16V5H3v-.86H2V1zm.25 8.13c-.17 0-.45.03-.66.06.53-.56 1.14-1.25 1.14-1.89C2.71 6.52 2.17 6 1.37 6c-.59 0-.97.2-1.38.64l.58.58c.19-.19.38-.38.64-.38.28 0 .48.16.48.52 0 .53-.77 1.2-1.7 2.06V10h3l-.09-.88h-.66l.01.01zm-.08 3.78v-.03c.44-.19.64-.47.64-.86 0-.7-.56-1.11-1.44-1.11-.48 0-.89.19-1.28.52l.55.64c.25-.2.44-.31.69-.31.27 0 .42.13.42.36 0 .27-.2.44-.86.44v.75c.83 0 .98.17.98.47 0 .25-.23.38-.58.38-.28 0-.56-.14-.81-.38l-.48.66c.3.36.77.56 1.41.56.83 0 1.53-.41 1.53-1.16 0-.5-.31-.81-.77-.94v.01z"/></svg><svg class="octicon octicon-tasklist d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15.41 9H7.59C7 9 7 8.59 7 8c0-.59 0-1 .59-1h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM9.59 4C9 4 9 3.59 9 3c0-.59 0-1 .59-1h5.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H9.59zM0 3.91l1.41-1.3L3 4.2 7.09 0 8.5 1.41 3 6.91l-3-3zM7.59 12h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H7.59C7 14 7 13.59 7 13c0-.59 0-1 .59-1z"/></svg><svg class="octicon octicon-reply d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 3.5c3.92.44 8 3.125 8 10-2.312-5.062-4.75-6-8-6V11L.5 5.5 6 0v3.5z"/></svg><svg class="octicon octicon-x js-menu-close d-none" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg><svg class="octicon octicon-octoface d-none" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"/></svg><svg class="octicon octicon-mention d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.58 15c1.25 0 2.52-.31 3.56-.94l-.42-.94c-.84.52-1.89.83-3.03.83-3.23 0-5.64-2.08-5.64-5.72 0-4.37 3.23-7.18 6.58-7.18 3.45 0 5.22 2.19 5.22 5.2 0 2.39-1.34 3.86-2.5 3.86-1.05 0-1.36-.73-1.05-2.19l.73-3.75H8.98l-.11.72c-.41-.63-.94-.83-1.56-.83-2.19 0-3.66 2.39-3.66 4.38 0 1.67.94 2.61 2.3 2.61.84 0 1.67-.53 2.3-1.25.11.94.94 1.45 1.98 1.45 1.67 0 3.77-1.67 3.77-5C14 2.61 11.59 0 7.83 0 3.66 0 0 3.33 0 8.33 0 12.71 2.92 15 6.58 15zm-.31-5c-.73 0-1.36-.52-1.36-1.67 0-1.45.94-3.22 2.41-3.22.52 0 .84.2 1.25.83l-.52 3.02c-.63.73-1.25 1.05-1.78 1.05V10z"/></svg><svg class="octicon octicon-bookmark d-none" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg></markdown-toolbar>
       <nav class="tabnav-tabs" role="tablist">
         <button type="button" class="btn-link tabnav-tab write-tab js-write-tab selected " role="tab" aria-selected="true">Write</button>
         <button type="button" class="btn-link tabnav-tab preview-tab js-preview-tab " role="tab">Preview</button>
@@ -977,14 +972,14 @@ from
   <div class="comment-form-error js-comment-form-error" style="display:none">    There was an error creating your PullRequest.
 </div>
   <div class="write-content js-write-bucket js-uploadable-container js-upload-markdown-image is-default upload-enabled"
-      data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="ZzVV0UnmV/ZXJEkjIiB+k7Q6qw3UycgC3vyrYk1dzM1Z2ef2xsaFaE+09xZdexCO4kgSFFbHLt1w4n4SqD/y3g=="
-        data-upload-repository-id="9200203"
+      data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="s93Es8jj7XyUp/Mt+Ev82uX2DL8jfkErrYrSCQzOxNaqgtyvTSoe7LM6oYKt5nhc3Y9Q/UYLQz+sHV7t/Czthg=="
+        data-upload-repository-id="5187976"
       >
 
     <input type="hidden" name="saved_reply_id" class="js-saved-reply-id js-resettable-field" value="" data-reset-value="">
 
     <textarea name="comment[body]"
-              id="r413351 new_inline_comment_diff_${anchor}_${position}"
+              id="r57804 new_inline_comment_diff_${anchor}_${position}"
               
               placeholder="Leave a comment"
               aria-label="Comment body"
@@ -1048,9 +1043,9 @@ from
 
     <div class="suggester-container">
       <div class="suggester js-suggester js-navigation-container"
-           data-url="/suggestions/pull_request/169853982?repository=openmrs-standalone&amp;user_id=openmrs"
-           data-log-mention-url="/suggestions/log_mention?repository=openmrs-standalone&amp;user_id=openmrs"
-           data-log-mention-authenticity-token="KQAFVSVeztr1TLh6/YGP6dPzu1XOGQAmnzv1UJpMISHnmzJNQyE2nYl+fbRxAmpvEEOOTDbeBJsoyfis+LXXUg=="
+           data-url="/suggestions/pull_request/181053772?repository=openmrs-core&amp;user_id=openmrs"
+           data-log-mention-url="/suggestions/log_mention?repository=openmrs-core&amp;user_id=openmrs"
+           data-log-mention-authenticity-token="t65VgLdNgWYxsL+M0Vklcoldr2sJPuyUQkd2WskAVcAzLS3g+Hsfd++P+io+Jrv7Bp1+8MoXbN5lm4Ft3XPRww=="
            >
       </div>
     </div>
@@ -1132,21 +1127,21 @@ from
   </div>
 
   <div class="inline-comment-form">
-      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-inline-comment-form" action="https://github.com/openmrs/openmrs-standalone/pull/32/review_comment/create" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="8U5foj81azsm+9oLwIPp1/5vZ8nq2HfIPJzPemcwismtGAmlSlKpO/+W05RvqrljcwcfAkFj9CgMry5Kbxub/w==" />
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-inline-comment-form" action="https://github.com/openmrs/openmrs-core/pull/2654/review_comment/create" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="YEBIhC4lM5soFxRwN0MytHCGOMGakbnv3GjrzL4TnfcNKfIsi900JcFx6zhDrJrgW5aXZG0B/3cXfF80bxHy6g==" />
         <input type="hidden" name="comment_context" value="diff">
 
-            <input type="hidden" name="commit_id" value="ce951ca08bf480d6eeef6c7aac72f579311198ff">
-            <input type="hidden" name="comparison_start_oid" value="5b99613f0bffb1ab3ffd50123096c7aa265d6620">
-            <input type="hidden" name="comparison_end_oid" value="ce951ca08bf480d6eeef6c7aac72f579311198ff">
-            <input type="hidden" name="comparison_base_oid" value="5b99613f0bffb1ab3ffd50123096c7aa265d6620">
+            <input type="hidden" name="commit_id" value="2a12d69748d3c502d3c4af471679dd81e05e5b9d">
+            <input type="hidden" name="comparison_start_oid" value="57d54fb44604e285f360ca315389beb821edd1c6">
+            <input type="hidden" name="comparison_end_oid" value="2a12d69748d3c502d3c4af471679dd81e05e5b9d">
+            <input type="hidden" name="comparison_base_oid" value="57d54fb44604e285f360ca315389beb821edd1c6">
             <input type="hidden" name="side" value="">
             <input type="hidden" name="line" value="">
           <input type="hidden" name="path" value="">
           <input type="hidden" name="position" value="">
 
-        <div class="js-suggester-container  js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview?markdown_unsupported=false&amp;repository=9200203&amp;subject=32&amp;subject_type=PullRequest" data-preview-authenticity-token="TI8h+R3IjUlWu60oNaDALXs6jTE2rwdB0Nv/XG3lIwIwMUAGJbKYenjyLwcT46m6T8YMLiWifCZMr7LQLQQRtw==">
+        <div class="js-suggester-container  js-previewable-comment-form previewable-comment-form write-selected" data-preview-url="/preview?markdown_unsupported=false&amp;repository=5187976&amp;subject=2654&amp;subject_type=PullRequest" data-preview-authenticity-token="EUdDdTVio34jEXw12u3pdlLoVRhn3VBeVUL3oMhlH6wEOYH9D81wVhbjgTuFUktXsaVjLoeJJ8YMtEhWp+aD0g==">
   <div class="comment-form-head tabnav">
-      <markdown-toolbar for="r903307 new_inline_comment_diff_${anchor}_${position}" data-saved-reply-contents-url="/settings/replies?context=pull_request_comment"><svg class="octicon octicon-text-size d-none" viewBox="0 0 18 16" version="1.1" width="18" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.62 9.08L12.1 3.66h-.06l-1.5 5.42h3.08zM5.7 10.13S4.68 6.52 4.53 6.02h-.08l-1.13 4.11H5.7zM17.31 14h-2.25l-.95-3.25h-4.07L9.09 14H6.84l-.69-2.33H2.87L2.17 14H0l3.3-9.59h2.5l2.17 6.34L10.86 2h2.52l3.94 12h-.01z"/></svg><svg class="octicon octicon-bold d-none" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1 2h3.83c2.48 0 4.3.75 4.3 2.95 0 1.14-.63 2.23-1.67 2.61v.06c1.33.3 2.3 1.23 2.3 2.86 0 2.39-1.97 3.52-4.61 3.52H1V2zm3.66 4.95c1.67 0 2.38-.66 2.38-1.69 0-1.17-.78-1.61-2.34-1.61H3.13v3.3h1.53zm.27 5.39c1.77 0 2.75-.64 2.75-1.98 0-1.27-.95-1.81-2.75-1.81h-1.8v3.8h1.8v-.01z"/></svg><svg class="octicon octicon-italic d-none" viewBox="0 0 6 16" version="1.1" width="6" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.81 5h1.98L3 14H1l1.81-9zm.36-2.7c0-.7.58-1.3 1.33-1.3.56 0 1.13.38 1.13 1.03 0 .75-.59 1.3-1.33 1.3-.58 0-1.13-.38-1.13-1.03z"/></svg><svg class="octicon octicon-quote d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg><svg class="octicon octicon-code d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg><svg class="octicon octicon-link d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg><svg class="octicon octicon-list-unordered d-none" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13c0 .59 0 1-.59 1H.59C0 14 0 13.59 0 13c0-.59 0-1 .59-1h.81c.59 0 .59.41.59 1H2zm2.59-9h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zM1.41 7H.59C0 7 0 7.41 0 8c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0-5H.59C0 2 0 2.41 0 3c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm10 5H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0 5H4.59C4 12 4 12.41 4 13c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01z"/></svg><svg class="octicon octicon-list-ordered d-none" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 13c0 .59 0 1-.59 1H4.59C4 14 4 13.59 4 13c0-.59 0-1 .59-1h6.81c.59 0 .59.41.59 1H12zM4.59 4h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zm6.81 3H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1zM2 1h-.72c-.3.19-.58.25-1.03.34V2H1v2.14H.16V5H3v-.86H2V1zm.25 8.13c-.17 0-.45.03-.66.06.53-.56 1.14-1.25 1.14-1.89C2.71 6.52 2.17 6 1.37 6c-.59 0-.97.2-1.38.64l.58.58c.19-.19.38-.38.64-.38.28 0 .48.16.48.52 0 .53-.77 1.2-1.7 2.06V10h3l-.09-.88h-.66l.01.01zm-.08 3.78v-.03c.44-.19.64-.47.64-.86 0-.7-.56-1.11-1.44-1.11-.48 0-.89.19-1.28.52l.55.64c.25-.2.44-.31.69-.31.27 0 .42.13.42.36 0 .27-.2.44-.86.44v.75c.83 0 .98.17.98.47 0 .25-.23.38-.58.38-.28 0-.56-.14-.81-.38l-.48.66c.3.36.77.56 1.41.56.83 0 1.53-.41 1.53-1.16 0-.5-.31-.81-.77-.94v.01z"/></svg><svg class="octicon octicon-tasklist d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15.41 9H7.59C7 9 7 8.59 7 8c0-.59 0-1 .59-1h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM9.59 4C9 4 9 3.59 9 3c0-.59 0-1 .59-1h5.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H9.59zM0 3.91l1.41-1.3L3 4.2 7.09 0 8.5 1.41 3 6.91l-3-3zM7.59 12h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H7.59C7 14 7 13.59 7 13c0-.59 0-1 .59-1z"/></svg><svg class="octicon octicon-reply d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 3.5c3.92.44 8 3.125 8 10-2.312-5.062-4.75-6-8-6V11L.5 5.5 6 0v3.5z"/></svg><svg class="octicon octicon-x js-menu-close d-none" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg><svg class="octicon octicon-octoface d-none" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"/></svg><svg class="octicon octicon-mention d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.58 15c1.25 0 2.52-.31 3.56-.94l-.42-.94c-.84.52-1.89.83-3.03.83-3.23 0-5.64-2.08-5.64-5.72 0-4.37 3.23-7.18 6.58-7.18 3.45 0 5.22 2.19 5.22 5.2 0 2.39-1.34 3.86-2.5 3.86-1.05 0-1.36-.73-1.05-2.19l.73-3.75H8.98l-.11.72c-.41-.63-.94-.83-1.56-.83-2.19 0-3.66 2.39-3.66 4.38 0 1.67.94 2.61 2.3 2.61.84 0 1.67-.53 2.3-1.25.11.94.94 1.45 1.98 1.45 1.67 0 3.77-1.67 3.77-5C14 2.61 11.59 0 7.83 0 3.66 0 0 3.33 0 8.33 0 12.71 2.92 15 6.58 15zm-.31-5c-.73 0-1.36-.52-1.36-1.67 0-1.45.94-3.22 2.41-3.22.52 0 .84.2 1.25.83l-.52 3.02c-.63.73-1.25 1.05-1.78 1.05V10z"/></svg><svg class="octicon octicon-bookmark d-none" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg></markdown-toolbar>
+      <markdown-toolbar for="r154994 new_inline_comment_diff_${anchor}_${position}" data-saved-reply-contents-url="/settings/replies?context=pull_request_comment"><svg class="octicon octicon-text-size d-none" viewBox="0 0 18 16" version="1.1" width="18" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.62 9.08L12.1 3.66h-.06l-1.5 5.42h3.08zM5.7 10.13S4.68 6.52 4.53 6.02h-.08l-1.13 4.11H5.7zM17.31 14h-2.25l-.95-3.25h-4.07L9.09 14H6.84l-.69-2.33H2.87L2.17 14H0l3.3-9.59h2.5l2.17 6.34L10.86 2h2.52l3.94 12h-.01z"/></svg><svg class="octicon octicon-bold d-none" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1 2h3.83c2.48 0 4.3.75 4.3 2.95 0 1.14-.63 2.23-1.67 2.61v.06c1.33.3 2.3 1.23 2.3 2.86 0 2.39-1.97 3.52-4.61 3.52H1V2zm3.66 4.95c1.67 0 2.38-.66 2.38-1.69 0-1.17-.78-1.61-2.34-1.61H3.13v3.3h1.53zm.27 5.39c1.77 0 2.75-.64 2.75-1.98 0-1.27-.95-1.81-2.75-1.81h-1.8v3.8h1.8v-.01z"/></svg><svg class="octicon octicon-italic d-none" viewBox="0 0 6 16" version="1.1" width="6" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2.81 5h1.98L3 14H1l1.81-9zm.36-2.7c0-.7.58-1.3 1.33-1.3.56 0 1.13.38 1.13 1.03 0 .75-.59 1.3-1.33 1.3-.58 0-1.13-.38-1.13-1.03z"/></svg><svg class="octicon octicon-quote d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg><svg class="octicon octicon-code d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg><svg class="octicon octicon-link d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg><svg class="octicon octicon-list-unordered d-none" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13c0 .59 0 1-.59 1H.59C0 14 0 13.59 0 13c0-.59 0-1 .59-1h.81c.59 0 .59.41.59 1H2zm2.59-9h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zM1.41 7H.59C0 7 0 7.41 0 8c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0-5H.59C0 2 0 2.41 0 3c0 .59 0 1 .59 1h.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm10 5H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01zm0 5H4.59C4 12 4 12.41 4 13c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1h.01z"/></svg><svg class="octicon octicon-list-ordered d-none" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 13c0 .59 0 1-.59 1H4.59C4 14 4 13.59 4 13c0-.59 0-1 .59-1h6.81c.59 0 .59.41.59 1H12zM4.59 4h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1H4.59C4 2 4 2.41 4 3c0 .59 0 1 .59 1zm6.81 3H4.59C4 7 4 7.41 4 8c0 .59 0 1 .59 1h6.81c.59 0 .59-.41.59-1 0-.59 0-1-.59-1zM2 1h-.72c-.3.19-.58.25-1.03.34V2H1v2.14H.16V5H3v-.86H2V1zm.25 8.13c-.17 0-.45.03-.66.06.53-.56 1.14-1.25 1.14-1.89C2.71 6.52 2.17 6 1.37 6c-.59 0-.97.2-1.38.64l.58.58c.19-.19.38-.38.64-.38.28 0 .48.16.48.52 0 .53-.77 1.2-1.7 2.06V10h3l-.09-.88h-.66l.01.01zm-.08 3.78v-.03c.44-.19.64-.47.64-.86 0-.7-.56-1.11-1.44-1.11-.48 0-.89.19-1.28.52l.55.64c.25-.2.44-.31.69-.31.27 0 .42.13.42.36 0 .27-.2.44-.86.44v.75c.83 0 .98.17.98.47 0 .25-.23.38-.58.38-.28 0-.56-.14-.81-.38l-.48.66c.3.36.77.56 1.41.56.83 0 1.53-.41 1.53-1.16 0-.5-.31-.81-.77-.94v.01z"/></svg><svg class="octicon octicon-tasklist d-none" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15.41 9H7.59C7 9 7 8.59 7 8c0-.59 0-1 .59-1h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM9.59 4C9 4 9 3.59 9 3c0-.59 0-1 .59-1h5.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H9.59zM0 3.91l1.41-1.3L3 4.2 7.09 0 8.5 1.41 3 6.91l-3-3zM7.59 12h7.81c.59 0 .59.41.59 1 0 .59 0 1-.59 1H7.59C7 14 7 13.59 7 13c0-.59 0-1 .59-1z"/></svg><svg class="octicon octicon-reply d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 3.5c3.92.44 8 3.125 8 10-2.312-5.062-4.75-6-8-6V11L.5 5.5 6 0v3.5z"/></svg><svg class="octicon octicon-x js-menu-close d-none" role="img" aria-label="Close" viewBox="0 0 12 16" version="1.1" width="12" height="16"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg><svg class="octicon octicon-octoface d-none" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"/></svg><svg class="octicon octicon-mention d-none" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.58 15c1.25 0 2.52-.31 3.56-.94l-.42-.94c-.84.52-1.89.83-3.03.83-3.23 0-5.64-2.08-5.64-5.72 0-4.37 3.23-7.18 6.58-7.18 3.45 0 5.22 2.19 5.22 5.2 0 2.39-1.34 3.86-2.5 3.86-1.05 0-1.36-.73-1.05-2.19l.73-3.75H8.98l-.11.72c-.41-.63-.94-.83-1.56-.83-2.19 0-3.66 2.39-3.66 4.38 0 1.67.94 2.61 2.3 2.61.84 0 1.67-.53 2.3-1.25.11.94.94 1.45 1.98 1.45 1.67 0 3.77-1.67 3.77-5C14 2.61 11.59 0 7.83 0 3.66 0 0 3.33 0 8.33 0 12.71 2.92 15 6.58 15zm-.31-5c-.73 0-1.36-.52-1.36-1.67 0-1.45.94-3.22 2.41-3.22.52 0 .84.2 1.25.83l-.52 3.02c-.63.73-1.25 1.05-1.78 1.05V10z"/></svg><svg class="octicon octicon-bookmark d-none" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg></markdown-toolbar>
       <nav class="tabnav-tabs" role="tablist">
         <button type="button" class="btn-link tabnav-tab write-tab js-write-tab selected " role="tab" aria-selected="true">Write</button>
         <button type="button" class="btn-link tabnav-tab preview-tab js-preview-tab " role="tab">Preview</button>
@@ -1157,14 +1152,14 @@ from
   <div class="comment-form-error js-comment-form-error" style="display:none">    There was an error creating your PullRequest.
 </div>
   <div class="write-content js-write-bucket js-uploadable-container js-upload-markdown-image is-default upload-enabled"
-      data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="XKvaM+PHlSzLjkQ3AWz/jxu9oTdPVsi3npyije3MslBiR2gUbOdHstMe+gJ+N5GSTc8YLs1YLmgwgnf9CK6MQw=="
-        data-upload-repository-id="9200203"
+      data-upload-policy-url="/upload/policies/assets" data-upload-policy-authenticity-token="zfOD7Uq4VIqaiFbbDyPZkfO80+/bmhvUtHAm8/ahK5XUrJvxz3GnGr0VBHRajl0Xy8WPrb7vGcC156oXBkMCxQ=="
+        data-upload-repository-id="5187976"
       >
 
     <input type="hidden" name="saved_reply_id" class="js-saved-reply-id js-resettable-field" value="" data-reset-value="">
 
     <textarea name="comment[body]"
-              id="r903307 new_inline_comment_diff_${anchor}_${position}"
+              id="r154994 new_inline_comment_diff_${anchor}_${position}"
               
               placeholder="Leave a comment"
               aria-label="Comment body"
@@ -1228,9 +1223,9 @@ from
 
     <div class="suggester-container">
       <div class="suggester js-suggester js-navigation-container"
-           data-url="/suggestions/pull_request/169853982?repository=openmrs-standalone&amp;user_id=openmrs"
-           data-log-mention-url="/suggestions/log_mention?repository=openmrs-standalone&amp;user_id=openmrs"
-           data-log-mention-authenticity-token="5VONQMYBVi5R1OK5K2hRjzG4RJufBEPHT0ME9lX3mSUryLpYoH6uaS3mJ3en67QJ8ghxgmfDR3r4sQkKNw5vVg=="
+           data-url="/suggestions/pull_request/181053772?repository=openmrs-core&amp;user_id=openmrs"
+           data-log-mention-url="/suggestions/log_mention?repository=openmrs-core&amp;user_id=openmrs"
+           data-log-mention-authenticity-token="ojWNKGmWGj+gi9pwBR23fx7HTiWtqSJRBy6q3UzfU8EmtvVIJqCELn60n9bqYin2kQefvm6Aohsg8l3qWKzXwg=="
            >
       </div>
     </div>
@@ -1286,17 +1281,17 @@ from
 
   <div class="js-diff-progressive-container">
     
-<a name="diff-9af0fe82caa041e65fa1391ee1d2af5d"></a>
+<a name="diff-0098231cc9c0df13c03afdfbc38a0b6b"></a>
 <div id="diff-0"
      class="file js-file js-details-container Details
-              soft-wrap
+             
              
              
              
              
               show-inline-notes
            ">
-  <div class="file-header js-file-header" data-path="src/main/config/README.txt" data-short-path="9af0fe8" data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d">
+  <div class="file-header js-file-header" data-path="api/src/main/java/org/openmrs/Concept.java" data-short-path="0098231" data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b">
     <div class="file-actions">
 
         <span class="show-file-notes pt-1">
@@ -1306,20 +1301,20 @@ from
           </label>
         </span>
 
-          <a href="https://github.com/OpenFOSS/openmrs-standalone/blob/ce951ca08bf480d6eeef6c7aac72f579311198ff/src/main/config/README.txt" class="btn btn-sm tooltipped tooltipped-nw" rel="nofollow" aria-label="View the whole file">View</a>
+          <a href="https://github.com/saidrobley/openmrs-core/blob/2a12d69748d3c502d3c4af471679dd81e05e5b9d/api/src/main/java/org/openmrs/Concept.java" class="btn btn-sm tooltipped tooltipped-nw" rel="nofollow" aria-label="View the whole file">View</a>
 
 
-            <button type="button" disabled class="btn-link btn-octicon tooltipped tooltipped-nw" aria-label="You must be signed in and have push access to the STAND-79 branch to make changes."><svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg></button>
+            <button type="button" disabled class="btn-link btn-octicon tooltipped tooltipped-nw" aria-label="You must be signed in and have push access to the TRUNK-5382 branch to make changes."><svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg></button>
       <button type="button" class="btn-octicon p-1 pr-2 js-details-target" aria-label="Toggle diff text" aria-expanded="true">
         <svg class="octicon octicon-chevron-down Details-content--shown" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5 11L0 6l1.5-1.5L5 8.25 8.5 4.5 10 6z"/></svg>
         <svg class="octicon octicon-chevron-up Details-content--hidden" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 10l-1.5 1.5L5 7.75 1.5 11.5 0 10l5-5z"/></svg>
       </button>
     </div>
     <div class="file-info">
-        <span class="diffstat tooltipped tooltipped-e" aria-label="1 addition &amp; 1 deletion">2 <span class="block-diff-added"></span><span class="block-diff-deleted"></span><span class="block-diff-neutral"></span><span class="block-diff-neutral"></span><span class="block-diff-neutral"></span></span>
+        <span class="diffstat tooltipped tooltipped-e" aria-label="19 additions &amp; 0 deletions">19 <span class="block-diff-added"></span><span class="block-diff-added"></span><span class="block-diff-added"></span><span class="block-diff-added"></span><span class="block-diff-added"></span></span>
 
-      <a href="#diff-9af0fe82caa041e65fa1391ee1d2af5d" class="link-gray-dark"
-         title="src/main/config/README.txt">src/main/config/README.txt</a>
+      <a href="#diff-0098231cc9c0df13c03afdfbc38a0b6b" class="link-gray-dark"
+         title="api/src/main/java/org/openmrs/Concept.java">api/src/main/java/org/openmrs/Concept.java</a>
 
       
     </div>
@@ -1327,66 +1322,66 @@ from
   <div class="js-file-content Details-content--shown">
 
         <div class="data highlight blob-wrapper">
-          <table class="diff-table tab-size  file-diff-split" data-tab-size="8">
+          <table class="diff-table tab-size  file-diff-split" data-tab-size="4">
               <colgroup>
-                <col width="40">
+                <col width="52">
                 <col>
-                <col width="40">
+                <col width="52">
                 <col>
               </colgroup>
             
       <tr class="js-expandable-line" data-position="0">
     <td class="blob-num blob-num-expandable" colspan="1">
-      <a href="#diff-9af0fe82caa041e65fa1391ee1d2af5d"
+      <a href="#diff-0098231cc9c0df13c03afdfbc38a0b6b"
             class="diff-expander js-expand" title="Expand" aria-label="Expand"
-            data-url="/openmrs/openmrs-standalone/blob_excerpt/e6ad96b1fc8b3eb90139e6e77f09b9290d25f300?diff=split&amp;in_wiki_context=&amp;left_hunk_size=7&amp;mode=100644&amp;next_line_num_left=71&amp;next_line_num_right=71&amp;path=src%2Fmain%2Fconfig%2FREADME.txt&amp;prev_line_num_left=&amp;prev_line_num_right=&amp;right_hunk_size=7"
-            data-left-range="1-70" data-right-range="1-70">
+            data-url="/openmrs/openmrs-core/blob_excerpt/7b5ff3263652a68655a34a6b508877e86a5a993a?diff=split&amp;in_wiki_context=&amp;left_hunk_size=6&amp;mode=100644&amp;next_line_num_left=1556&amp;next_line_num_right=1556&amp;path=api%2Fsrc%2Fmain%2Fjava%2Forg%2Fopenmrs%2FConcept.java&amp;prev_line_num_left=&amp;prev_line_num_right=&amp;right_hunk_size=25"
+            data-left-range="1-1555" data-right-range="1-1555">
         <svg class="octicon octicon-unfold" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>
       </a>
     </td>
-    <td class="blob-code blob-code-inner blob-code-hunk" colspan="3">@@ -71,7 +71,7 @@ or</td>
+    <td class="blob-code blob-code-inner blob-code-hunk" colspan="3">@@ -1556,6 +1556,25 @@ public void setId(Integer id) {</td>
   </tr>
 
 
     <tr>
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dL71"
-        data-line-number="71"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bL1556"
+        data-line-number="1556"></td>
 
     <td class="code-review blob-code blob-code-context ">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="deletion"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
            data-position="1"
-           data-line="71"
+           data-line="1556"
            data-side="right"
            type="button" aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> LOGIN DETAILS (remember to change the password immediately after installation in a production environment)</span>
+      <span class="blob-code-inner"> 		}</span>
 
     </td>
 
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dR71"
-        data-line-number="71"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1556"
+        data-line-number="1556"></td>
 
     <td class="code-review blob-code blob-code-context">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="addition"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
            data-position="1"
-           data-line="71"
+           data-line="1556"
            data-side="right"
            type="button"
            aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> LOGIN DETAILS (remember to change the password immediately after installation in a production environment)</span>
+      <span class="blob-code-inner"> 		}</span>
 
     </td>
 </tr>
@@ -1395,43 +1390,43 @@ from
 
     <tr>
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dL72"
-        data-line-number="72"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bL1557"
+        data-line-number="1557"></td>
 
     <td class="code-review blob-code blob-code-context ">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="deletion"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
            data-position="2"
-           data-line="72"
+           data-line="1557"
            data-side="right"
            type="button" aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> =============</span>
+      <span class="blob-code-inner"> 		<span class="pl-k">return</span> <span class="pl-smi">Collections</span><span class="pl-k">.</span>unmodifiableList(conceptMembers);</span>
 
     </td>
 
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dR72"
-        data-line-number="72"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1557"
+        data-line-number="1557"></td>
 
     <td class="code-review blob-code blob-code-context">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="addition"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
            data-position="2"
-           data-line="72"
+           data-line="1557"
            data-side="right"
            type="button"
            aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> =============</span>
+      <span class="blob-code-inner"> 		<span class="pl-k">return</span> <span class="pl-smi">Collections</span><span class="pl-k">.</span>unmodifiableList(conceptMembers);</span>
 
     </td>
 </tr>
@@ -1440,43 +1435,43 @@ from
 
     <tr>
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dL73"
-        data-line-number="73"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bL1558"
+        data-line-number="1558"></td>
 
     <td class="code-review blob-code blob-code-context ">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="deletion"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
            data-position="3"
-           data-line="73"
+           data-line="1558"
            data-side="right"
            type="button" aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> username - admin</span>
+      <span class="blob-code-inner"> 	}</span>
 
     </td>
 
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dR73"
-        data-line-number="73"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1558"
+        data-line-number="1558"></td>
 
     <td class="code-review blob-code blob-code-context">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="addition"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
            data-position="3"
-           data-line="73"
+           data-line="1558"
            data-side="right"
            type="button"
            aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> username - admin</span>
+      <span class="blob-code-inner"> 	}</span>
 
     </td>
 </tr>
@@ -1484,44 +1479,55 @@ from
 
 
     <tr>
-    <td class="blob-num blob-num-deletion js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dL74"
-        data-line-number="74"></td>
-
-    <td class="code-review blob-code blob-code-deletion ">
-        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
-           data-type="deletion"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
-           data-position="4"
-           data-line="74"
-           data-side="left"
-           type="button" aria-label="Add line comment">
-           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
-         </button>
-
-      <span class="blob-code-inner">-password - <span class="x x-first x-last">test</span></span>
-
-    </td>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
 
     <td class="blob-num blob-num-addition js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dR74"
-        data-line-number="74"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1559"
+        data-line-number="1559"></td>
 
     <td class="code-review blob-code blob-code-addition">
         <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
            data-type="addition"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="4"
+           data-line="1559"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+</span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1560"
+        data-line-number="1560"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
            data-position="5"
-           data-line="74"
+           data-line="1560"
            data-side="right"
            type="button"
            aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner">+password - <span class="x x-first x-last">Admin123</span></span>
+      <span class="blob-code-inner">+	<span class="pl-c"><span class="pl-c">/**</span></span></span>
 
     </td>
 </tr>
@@ -1529,44 +1535,475 @@ from
 
 
     <tr>
-    <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dL75"
-        data-line-number="75"></td>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
 
-    <td class="code-review blob-code blob-code-context ">
-        <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
-           data-type="deletion"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1561"
+        data-line-number="1561"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
            data-position="6"
-           data-line="75"
-           data-side="right"
-           type="button" aria-label="Add line comment">
-           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
-         </button>
-
-      <span class="blob-code-inner"> </span>
-
-    </td>
-
-    <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dR75"
-        data-line-number="75"></td>
-
-    <td class="code-review blob-code blob-code-context">
-        <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
-           data-type="addition"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
-           data-position="6"
-           data-line="75"
+           data-line="1561"
            data-side="right"
            type="button"
            aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> </span>
+      <span class="blob-code-inner">+<span class="pl-c">	 * If &lt;<span class="pl-ent">code</span>&gt;includeRetired&lt;/code&gt; is true, then the returned object is the actual stored list of</span></span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1562"
+        data-line-number="1562"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="7"
+           data-line="1562"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+<span class="pl-c">	 * {<span class="pl-k">@link</span> Concept}s</span></span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1563"
+        data-line-number="1563"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="8"
+           data-line="1563"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+<span class="pl-c">	 *</span></span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1564"
+        data-line-number="1564"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="9"
+           data-line="1564"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+<span class="pl-c">	 * <span class="pl-k">@param</span> includeRetired true/false whether to also include the retired members</span></span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1565"
+        data-line-number="1565"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="10"
+           data-line="1565"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+<span class="pl-c">	 * <span class="pl-k">@return</span> List<span class="pl-c1">&amp;lt;</span>Concept<span class="pl-c1">&amp;gt;</span> the Concepts that are members of this Concept&#39;s set</span></span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1566"
+        data-line-number="1566"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="11"
+           data-line="1566"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+<span class="pl-c">	 * <span class="pl-k">@should</span> return the same as getSetMembers() if includeRetired is true</span></span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1567"
+        data-line-number="1567"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="12"
+           data-line="1567"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+<span class="pl-c">	 * <span class="pl-k">@should</span> not return retired members if includeRetired is false</span></span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1568"
+        data-line-number="1568"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="13"
+           data-line="1568"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+<span class="pl-c">	 <span class="pl-c">*/</span></span></span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1569"
+        data-line-number="1569"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="14"
+           data-line="1569"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+	<span class="pl-k">public</span> <span class="pl-k">List&lt;<span class="pl-smi">Concept</span>&gt;</span> <span class="pl-en">getSetMembers</span>(<span class="pl-k">boolean</span> <span class="pl-v">includeRetired</span>){</span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1570"
+        data-line-number="1570"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="15"
+           data-line="1570"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+		<span class="pl-k">if</span> (includeRetired) {</span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1571"
+        data-line-number="1571"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="16"
+           data-line="1571"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+			<span class="pl-k">return</span> getSetMembers();</span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1572"
+        data-line-number="1572"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="17"
+           data-line="1572"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+		} <span class="pl-k">else</span> {</span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1573"
+        data-line-number="1573"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="18"
+           data-line="1573"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+			<span class="pl-k">return</span> getSetMembers()<span class="pl-k">.</span>stream()</span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1574"
+        data-line-number="1574"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="19"
+           data-line="1574"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+				.filter(a <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-k">!</span>a<span class="pl-k">.</span>getRetired())</span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1575"
+        data-line-number="1575"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="20"
+           data-line="1575"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+				.collect(<span class="pl-smi">Collectors</span><span class="pl-k">.</span>toList());</span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1576"
+        data-line-number="1576"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="21"
+           data-line="1576"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+		}</span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-empty empty-cell"></td>
+    <td class="blob-code blob-code-empty empty-cell"></td>
+
+    <td class="blob-num blob-num-addition js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1577"
+        data-line-number="1577"></td>
+
+    <td class="code-review blob-code blob-code-addition">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-split-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="22"
+           data-line="1577"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner">+	}</span>
 
     </td>
 </tr>
@@ -1575,43 +2012,43 @@ from
 
     <tr>
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dL76"
-        data-line-number="76"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bL1559"
+        data-line-number="1559"></td>
 
     <td class="code-review blob-code blob-code-context ">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="deletion"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
-           data-position="7"
-           data-line="76"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="23"
+           data-line="1578"
            data-side="right"
            type="button" aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> </span>
+      <span class="blob-code-inner"> 	</span>
 
     </td>
 
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dR76"
-        data-line-number="76"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1578"
+        data-line-number="1578"></td>
 
     <td class="code-review blob-code blob-code-context">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="addition"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
-           data-position="7"
-           data-line="76"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="23"
+           data-line="1578"
            data-side="right"
            type="button"
            aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> </span>
+      <span class="blob-code-inner"> 	</span>
 
     </td>
 </tr>
@@ -1620,43 +2057,88 @@ from
 
     <tr>
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dL77"
-        data-line-number="77"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bL1560"
+        data-line-number="1560"></td>
 
     <td class="code-review blob-code blob-code-context ">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="deletion"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
-           data-position="8"
-           data-line="77"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="24"
+           data-line="1579"
            data-side="right"
            type="button" aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> CHANGING THE USERNAME AND PASSWORD</span>
+      <span class="blob-code-inner"> 	<span class="pl-c"><span class="pl-c">/**</span></span></span>
 
     </td>
 
     <td class="blob-num blob-num-context js-linkable-line-number"
-        id="diff-9af0fe82caa041e65fa1391ee1d2af5dR77"
-        data-line-number="77"></td>
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1579"
+        data-line-number="1579"></td>
 
     <td class="code-review blob-code blob-code-context">
         <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
            data-type="addition"
-           data-path="src/main/config/README.txt"
-           data-anchor="diff-9af0fe82caa041e65fa1391ee1d2af5d"
-           data-position="8"
-           data-line="77"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="24"
+           data-line="1579"
            data-side="right"
            type="button"
            aria-label="Add line comment">
            <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
          </button>
 
-      <span class="blob-code-inner"> CHANGING THE USERNAME AND PASSWORD</span>
+      <span class="blob-code-inner"> 	<span class="pl-c"><span class="pl-c">/**</span></span></span>
+
+    </td>
+</tr>
+
+
+
+    <tr>
+    <td class="blob-num blob-num-context js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bL1561"
+        data-line-number="1561"></td>
+
+    <td class="code-review blob-code blob-code-context ">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
+           data-type="deletion"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="25"
+           data-line="1580"
+           data-side="right"
+           type="button" aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner"> <span class="pl-c">	 * Appends the concept to the end of the existing list of concept members for this Concept</span></span>
+
+    </td>
+
+    <td class="blob-num blob-num-context js-linkable-line-number"
+        id="diff-0098231cc9c0df13c03afdfbc38a0b6bR1580"
+        data-line-number="1580"></td>
+
+    <td class="code-review blob-code blob-code-context">
+        <button class="btn-link add-line-comment js-add-line-comment js-add-single-line-comment"
+           data-type="addition"
+           data-path="api/src/main/java/org/openmrs/Concept.java"
+           data-anchor="diff-0098231cc9c0df13c03afdfbc38a0b6b"
+           data-position="25"
+           data-line="1580"
+           data-side="right"
+           type="button"
+           aria-label="Add line comment">
+           <svg class="octicon octicon-plus" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+         </button>
+
+      <span class="blob-code-inner"> <span class="pl-c">	 * Appends the concept to the end of the existing list of concept members for this Concept</span></span>
 
     </td>
 </tr>
@@ -1665,10 +2147,10 @@ from
 
   <tr class="js-expandable-line">
    <td class="blob-num blob-num-expandable" colspan="1">
-     <a href="#diff-9af0fe82caa041e65fa1391ee1d2af5d"
+     <a href="#diff-0098231cc9c0df13c03afdfbc38a0b6b"
           class="diff-expander js-expand" title="Expand" aria-label="Expand"
-          data-url="/openmrs/openmrs-standalone/blob_excerpt/e6ad96b1fc8b3eb90139e6e77f09b9290d25f300?diff=split&amp;in_wiki_context=&amp;mode=100644&amp;path=src%2Fmain%2Fconfig%2FREADME.txt&amp;prev_line_num_left=77&amp;prev_line_num_right=77"
-          data-left-range="78-115" data-right-range="78-115">
+          data-url="/openmrs/openmrs-core/blob_excerpt/7b5ff3263652a68655a34a6b508877e86a5a993a?diff=split&amp;in_wiki_context=&amp;mode=100644&amp;path=api%2Fsrc%2Fmain%2Fjava%2Forg%2Fopenmrs%2FConcept.java&amp;prev_line_num_left=1561&amp;prev_line_num_right=1580"
+          data-left-range="1562-1689" data-right-range="1581-1689">
        <svg class="octicon octicon-unfold" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 7.5L14 10c0 .55-.45 1-1 1H9v-1h3.5l-2-2h-7l-2 2H5v1H1c-.55 0-1-.45-1-1l2.5-2.5L0 5c0-.55.45-1 1-1h4v1H1.5l2 2h7l2-2H9V4h4c.55 0 1 .45 1 1l-2.5 2.5zM6 6h2V3h2L7 0 4 3h2v3zm2 3H6v3H4l3 3 3-3H8V9z"/></svg>
      </a>
    </td>
@@ -1682,6 +2164,18 @@ from
 </div>
 
   </div>
+
+    <div class="js-diff-progressive-container">
+  <include-fragment src="https://github.com/openmrs/openmrs-core/diffs?base_sha=57d54fb44604e285f360ca315389beb821edd1c6&amp;bytes=912&amp;commentable=true&amp;head_user=saidrobley&amp;lines=26&amp;pull_number=2654&amp;sha1=57d54fb44604e285f360ca315389beb821edd1c6&amp;sha2=2a12d69748d3c502d3c4af471679dd81e05e5b9d&amp;start_entry=1" class="diff-progressive-loader js-diff-progressive-loader mb-4 d-flex flex-items-center flex-justify-center">
+    <img alt="" class="js-diff-progressive-spinner" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" width="64" height="64" />
+
+    <div class="js-diff-progressive-retry d-none">
+      <svg class="octicon octicon-alert text-red mr-1" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+      Oops, something went wrong.
+      <button type="button" class="btn-link js-retry-button">Retry</button>
+    </div>
+  </include-fragment>
+</div>
 
 </div>
 
@@ -1735,7 +2229,7 @@ from
 <div class="footer container-lg px-3" role="contentinfo">
   <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
     <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2018 <span title="0.49386s from unicorn-3321786183-lvzvt">GitHub</span>, Inc.</li>
+      <li class="mr-3">&copy; 2018 <span title="0.42686s from unicorn-1504320864-5z0rh">GitHub</span>, Inc.</li>
         <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
         <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
         <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>
@@ -1768,14 +2262,14 @@ from
     <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
       <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
     </button>
-    You can't perform that action at this time.
+    You can’t perform that action at this time.
   </div>
 
 
-    <script crossorigin="anonymous" type="application/javascript" src="https://assets-cdn.github.com/assets/compat-413dd2a0695c3dfaf7de158468a91646.js"></script>
-    <script crossorigin="anonymous" type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-d941de838fad400fb91238d23684a777.js"></script>
+    <script crossorigin="anonymous" type="application/javascript" src="https://assets-cdn.github.com/assets/compat-8e5db19dd0f30433798e3cb0118e654c.js"></script>
+    <script crossorigin="anonymous" type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-cae483278a9c7126c25f62f25f2cfb95.js"></script>
     
-    <script crossorigin="anonymous" async="async" type="application/javascript" src="https://assets-cdn.github.com/assets/github-d19623a69cc756b5a2cbda89154a69e9.js"></script>
+    <script crossorigin="anonymous" async="async" type="application/javascript" src="https://assets-cdn.github.com/assets/github-dea53a441a0d30d1d86626e99f9f7872.js"></script>
     
     
     
@@ -1807,6 +2301,6 @@ from
 
   </body>
 
-<!-- Mirrored from github.com/openmrs/openmrs-standalone/pull/32/commits/ce951ca08bf480d6eeef6c7aac72f579311198ff?diff=split by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Apr 2018 22:48:22 GMT -->
+<!-- Mirrored from github.com/openmrs/openmrs-core/pull/2654/commits/2a12d69748d3c502d3c4af471679dd81e05e5b9d by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 22 Apr 2018 21:02:39 GMT -->
 </html>
 

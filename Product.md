@@ -66,8 +66,7 @@ Additionally, to address the needs of our code’s maintainers, we created a UML
 ### Links
 * [Pull Request](Code-Contributions/TRUNK-5331/Pull_Request/2649.html)
 * [git diff](Code-Contributions/TRUNK-5331/TRUNK-5331.txt)
-**TODO This link needs to be re-pulled**
-* [OpenMRS User Story](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331] CohortMembership should not require a startDate.htm)
+* [OpenMRS User Story](Code-Contributions/TRUNK-5331/Jira_Ticket/TRUNK-5331.htm)
 
 ** the raw git diff exists at the bottom of this document under ** [*Code Contribution #3 TRUNK-5331*](#TRUNK-5331)
 
@@ -101,8 +100,7 @@ The method getSetmembers() returns all members which includes both retired and u
 ## Backlog Contribution #3 TRUNK-5372
 ### Description
 ### Links
-**TODO This link dies not exist**
-* [OpenMRS User Story]()
+* [OpenMRS User Story](Backlog-Contributions/TRUNK-5372/TRUNK-5372.htm)
 
 ** the raw git diff exists at the bottom of this document under ** [*Code Contribution #1 TRUNK-5372*](#TRUNK-5372)
 
