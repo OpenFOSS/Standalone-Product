@@ -16,7 +16,7 @@ This document contains the product deliverables from the OpenFOSS team throughou
 ## Code Contribution #1 STAND-79
 ### Description
 
-The OpenMRS platform has a all-inclusive installation option they call their OpenMRS-Standalone product. The installation instructions for this service appeared to have an error regarding the default login credentials for the webapp. This was reported in two user stories within the OpenMRS backlog STAND-79 and STAND-54. Our team's pull request updated the documentation to match the code in production.
+The OpenMRS platform has a all-inclusive installation option they call their OpenMRS-Standalone product. The installation instructions for this service appeared to have an error regarding the default login credentials for the webapp. This was reported in two user stories within the OpenMRS backlog STAND-79 and STAND-54. Our team's pull request made updated the documentation to match the code in production.
 
 ### Links
 * [Pull Request](Code-Contributions/STAND-79/Pull_Request/32.html)
@@ -27,6 +27,18 @@ The OpenMRS platform has a all-inclusive installation option they call their Ope
 
 ## Code Contribution #2 TRUNK-3401
 ### Description
+TRUNK-3401 is an OpenMRS backlog issue that addresses a bug that was discovered in OpenMRS version 1.9. If a call is made to encounter.setProvider(User) method in api/src/main/java/org/openmrs/api/impl/ProviderServiceImpl.java and the User does not have a Provider object associated, it throws an error. Though the current version at the time of writing this note was 2.1, the OpenMRS community wanted this method fixed to provide backwards-compatibility and support for modules that use this method.
+The specifications stated the following requirements to fix the bug:
+1.	Create a convenience method in ProviderServiceImp.java class that takes a user and creates a Provider for them.
+2.	Create a Provider record object for the User if the Provider is not already assigned to this User.
+3.	An exception should be thrown if the Provider Object could not be created for the user.
+OpenFOSS team added value to OpenMRS by making the following changes to satisfy the requirements:
+We added a method to the interface to ensure that the method is always implemented by any inheriting classes. 
+We added some tests to ensure that we got the desired outcome which also increased the test coverage.
+Then created a method to allow a user to be assigned a Provider object if none is already assigned and if the Provider is already assigned, it will return the Provider. 
+We made a number of GitHub pull requests for this issue, and the OpenMRS developer community responded with a number of recommendations that are reflected in the current pull request. Some changes included, the addition of logging as well as the message to be logged, and the order of the if/else checks in the method.
+This information is important to ensure that any new changes made for this issue do not regress the code and intent. 
+
 ### Links
 * [Pull Request](Code-Contributions/TRUNK-3401/Pull_Request/2625.html)
 * [git diff](Code-Contributions/TRUNK-3401/TRUNK-3401.txt)
@@ -46,8 +58,6 @@ The OpenMRS platform has a all-inclusive installation option they call their Ope
 
 ## Code Contribution #4 TRUNK-5382
 ### Description
-The method getSetmembers() returns all members which includes both retired and unretired members, and it does not have an option to exclude retired members, so in order to enhance the user experience OpenFoss has claimed this issue and made an attempt to add this feature.  We have added a method called getSetMembers(Boolean includeRetired)  if the parameter is set to true the method returns all members(retired and unretired) otherwise returns all set members excluding retired members.
-
 ### Links
 * [Pull Request](Code-Contributions/TRUNK-5382/Pull_Request/2654.html)
 * [git diff](Code-Contributions/TRUNK-5382/TRUNK-5382.txt)
