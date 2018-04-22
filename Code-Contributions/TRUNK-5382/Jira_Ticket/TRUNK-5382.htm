@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://issues.openmrs.org/si/jira.issueviews:issue-html/TRUNK-5382/TRUNK-5382.html -->
+<html class="webkit chrome gr__issues_openmrs_org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[#TRUNK-5382] Extra utility method for excluding retired concepts while fetching setmembers</title>
+    
+            
+        <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"\"";
+WRM._unparsedData["jira.webresources:feature-flags.feature-flag-data"]="{\"enabled-feature-keys\":[\"com.atlassian.jira.agile.darkfeature.editable.detailsview\",\"nps.survey.inline.dialog\",\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint.enabled\",\"jira.plugin.devstatus.phasetwo\",\"jira.frother.reporter.field\",\"atlassian.rest.xsrf.legacy.enabled\",\"jira.issue.status.lozenge\",\"com.atlassian.jira.config.BIG_PIPE\",\"com.atlassian.jira.config.PDL\",\"jira.plugin.devstatus.phasetwo.enabled\",\"atlassian.aui.raphael.disabled\",\"app-switcher.new\",\"frother.assignee.field\",\"com.atlassian.jira.projects.ProjectCentricNavigation.Switch\",\"jira.onboarding.cyoa\",\"com.atlassian.jira.agile.darkfeature.kanplan.enabled\",\"com.atlassian.jira.config.ProjectConfig.MENU\",\"com.atlassian.jira.projects.sidebar.DEFER_RESOURCES\",\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions.enabled\",\"com.atlassian.jira.agile.darkfeature.sprint.goal.enabled\",\"jira.zdu.admin-updates-ui\",\"jira.zdu.jmx-monitoring\",\"sd.new.settings.sidebar.location.disabled\",\"jira.zdu.cluster-upgrade-state\",\"com.atlassian.jira.agile.darkfeature.splitissue\",\"com.atlassian.jira.config.CoreFeatures.LICENSE_ROLES_ENABLED\",\"com.atlassian.feedback.feedback-button-move-to-header-enable\",\"jira.export.csv.enabled\"],\"feature-flag-states\":{\"com.atlassian.jira.agile.darkfeature.kanplan\":false,\"jira.sal.host.connect.accessor.existing.transaction.will.create.transactions\":true,\"jira.jql.suggestrecentfields\":false,\"jira.instrumentation.laas\":false,\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions\":false,\"jira.jql.smartautoselectfirst\":false,\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint\":false,\"jira.create.linked.issue\":true,\"com.atlassian.jira.upgrade.startup.fix.index\":true,\"com.atlassian.jira.agile.darkfeature.sprint.goal\":false}}";
+WRM._unparsedData["jira.webresources:default-comment-security-level.DefaultCommentSecurityLevelHelpLink"]="{\"extraClasses\":\"default-comment-level-help\",\"title\":\"Commenting on an Issue\",\"url\":\"https://docs.atlassian.com/jira/jcore-docs-075/Editing+and+collaborating+on+issues#Editingandcollaboratingonissues-restrictacomment\",\"isLocal\":false}";
+WRM._unparsedData["jira.request.correlation-id"]="\"973565c3d28140\"";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="./TRUNK-5382_files/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="./TRUNK-5382_files/com.atlassian.auiplugin_aui-labels.css" data-wrm-key="com.atlassian.auiplugin:aui-labels" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="./TRUNK-5382_files/jira.webresources_global-static.css" data-wrm-key="jira.webresources:global-static" data-wrm-batch-type="resource" media="all">
+<script type="text/javascript" src="./TRUNK-5382_files/batch.js" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered=""></script><style></style><style type="text/css"></style><style type="text/css"></style>
+
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://issues.openmrs.org/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body data-gr-c-s-loaded="true" data-aui-version="6.0.0">
+<header id="previous-view">
+    <nav class="aui-toolbar">
+        <div class="toolbar-split toolbar-split-right">
+            <ul class="toolbar-group">
+                <li class="toolbar-item">
+                    <a href="https://issues.openmrs.org/browse/TRUNK-5382" class="toolbar-trigger">Back to previous view</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [TRUNK-5382]&nbsp;<a href="https://issues.openmrs.org/browse/TRUNK-5382">Extra utility method for excluding retired concepts while fetching setmembers</a>
+            <span class="subText">
+               Created: 2018-03-26                   &nbsp;Updated: 2018-04-13
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Code Review (Initial)</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="https://issues.openmrs.org/secure/BrowseProject.jspa?id=10000">OpenMRS Core</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Affects Version/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Fix Version/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+    </tbody></table>
+
+<br>
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top" width="30%">
+            Enhancement
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap="">
+                TBD
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%">
+                                            <a class="user-hover" rel="tahira" id="word_reporter_tahira" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=tahira">Tahira Niazi</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap="" width="30%">
+                                            <a class="user-hover" rel="saidrobley" id="word_assignee_saidrobley" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=saidrobley">Said Robley</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap="">
+            				Unresolved
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votes:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap="">
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-94269-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap="">
+                            2.1, Concept, Openmrs, core                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap="" width="80%" colspan="3">
+                            0 minutes
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap="" width="80%" colspan="3">
+                            4 hours
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap="" width="80%" colspan="3">
+                            4 hours
+            		</td>
+    </tr>
+    
+    </tbody></table>
+
+
+
+    <br>
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+
+                        <tbody><tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Complexity:</b></td>
+                <td id="customfield_10020-94269-value" class="value" bgcolor="#ffffff" width="80%">    Low
+</td>
+            </tr>
+            </tbody></table>
+
+    <br>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tbody><tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap="" align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </tbody></table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr>
+        <td id="descriptionArea">
+            <p>getSetMembers() returns members of a concept set but does not have an option to exclude retired concepts.&nbsp;</p>
+
+<p>This method should be analogous to Concept.getAnswers(boolean includeRetired):&nbsp;<a href="https://github.com/openmrs/openmrs-core/blob/2.1.2/api/src/main/java/org/openmrs/Concept.java#L177" class="external-link" rel="nofollow">https://github.com/openmrs/openmrs-core/blob/2.1.2/api/src/main/java/org/openmrs/Concept.java#L177</a></p>
+            <br>
+        </td>
+    </tr>
+    </tbody></table>
+
+    <br>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tbody><tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap="" align="center">
+            &nbsp;<font color="#ffffff"><b>Comments</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </tbody></table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tbody><tr id="comment-header-247108"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="darius" id="word_commented_darius" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius">Darius Jazayeri</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-26</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247108"><td bgcolor="#ffffff">
+            <p>It's a one-liner for client to code to do this. Do we really need a core API method for it?</p>
+        </td></tr>
+                <tr id="comment-header-247126"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="tahira" id="word_commented_tahira" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=tahira">Tahira Niazi</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-27</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247126"><td bgcolor="#ffffff">
+            <p>It was created with reference to this <a href="https://talk.openmrs.org/t/getsetmembers-does-not-have-an-option-to-retrieve-non-retired-concepts/17077" class="external-link" rel="nofollow">openmrs talk</a>.</p>
+        </td></tr>
+                <tr id="comment-header-247228"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="tahira" id="word_commented_tahira" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=tahira">Tahira Niazi</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-30</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247228"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius" class="user-hover" rel="darius">Darius Jazayeri</a> does this need further assessment?</p>
+        </td></tr>
+                <tr id="comment-header-247266"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="darius" id="word_commented_darius" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius">Darius Jazayeri</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-04-03</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247266"><td bgcolor="#ffffff">
+            <p>Since you want to work on it and Wyclif approves, I'm marking it ready for work. (I still don't personally think this is worth it, since it's a one-liner for client code, but that's fine.)</p>
+        </td></tr>
+                <tr id="comment-header-247545"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="saidrobley" id="word_commented_saidrobley" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=saidrobley">Said Robley</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-04-13</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247545"><td bgcolor="#ffffff">
+            <p>this is the pull request for this issue <a href="https://github.com/openmrs/openmrs-core/pull/2654" class="external-link" rel="nofollow">https://github.com/openmrs/openmrs-core/pull/2654</a></p>
+        </td></tr>
+            </tbody></table>
+Generated at Mon Apr 16 22:32:03 UTC 2018 using JIRA 7.5.1#75006-sha1:7df2574a6cc842da727f00de4c5ce9ac07701368.
+
+
+</body></html>

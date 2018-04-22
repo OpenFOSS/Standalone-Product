@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://issues.openmrs.org/si/jira.issueviews:issue-html/TRUNK-5331/TRUNK-5331.html -->
+<html class="webkit chrome gr__issues_openmrs_org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[#TRUNK-5331] CohortMembership should not require a startDate</title>
+    
+            
+        <style></style><script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"\"";
+WRM._unparsedData["jira.webresources:feature-flags.feature-flag-data"]="{\"enabled-feature-keys\":[\"com.atlassian.jira.agile.darkfeature.editable.detailsview\",\"nps.survey.inline.dialog\",\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint.enabled\",\"jira.plugin.devstatus.phasetwo\",\"jira.frother.reporter.field\",\"atlassian.rest.xsrf.legacy.enabled\",\"jira.issue.status.lozenge\",\"com.atlassian.jira.config.BIG_PIPE\",\"com.atlassian.jira.config.PDL\",\"jira.plugin.devstatus.phasetwo.enabled\",\"atlassian.aui.raphael.disabled\",\"app-switcher.new\",\"frother.assignee.field\",\"com.atlassian.jira.projects.ProjectCentricNavigation.Switch\",\"jira.onboarding.cyoa\",\"com.atlassian.jira.agile.darkfeature.kanplan.enabled\",\"com.atlassian.jira.config.ProjectConfig.MENU\",\"com.atlassian.jira.projects.sidebar.DEFER_RESOURCES\",\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions.enabled\",\"com.atlassian.jira.agile.darkfeature.sprint.goal.enabled\",\"jira.zdu.admin-updates-ui\",\"jira.zdu.jmx-monitoring\",\"sd.new.settings.sidebar.location.disabled\",\"jira.zdu.cluster-upgrade-state\",\"com.atlassian.jira.agile.darkfeature.splitissue\",\"com.atlassian.jira.config.CoreFeatures.LICENSE_ROLES_ENABLED\",\"com.atlassian.feedback.feedback-button-move-to-header-enable\",\"jira.export.csv.enabled\"],\"feature-flag-states\":{\"com.atlassian.jira.agile.darkfeature.kanplan\":false,\"jira.sal.host.connect.accessor.existing.transaction.will.create.transactions\":true,\"jira.jql.suggestrecentfields\":false,\"jira.instrumentation.laas\":false,\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions\":false,\"jira.jql.smartautoselectfirst\":false,\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint\":false,\"jira.create.linked.issue\":true,\"com.atlassian.jira.upgrade.startup.fix.index\":true,\"com.atlassian.jira.agile.darkfeature.sprint.goal\":false}}";
+WRM._unparsedData["jira.webresources:default-comment-security-level.DefaultCommentSecurityLevelHelpLink"]="{\"extraClasses\":\"default-comment-level-help\",\"title\":\"Commenting on an Issue\",\"url\":\"https://docs.atlassian.com/jira/jcore-docs-075/Editing+and+collaborating+on+issues#Editingandcollaboratingonissues-restrictacomment\",\"isLocal\":false}";
+WRM._unparsedData["jira.request.correlation-id"]="\"888f64ece2ea\"";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="./[#TRUNK-5331] CohortMembership should not require a startDate_files/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="./[#TRUNK-5331] CohortMembership should not require a startDate_files/com.atlassian.auiplugin_aui-labels.css" data-wrm-key="com.atlassian.auiplugin:aui-labels" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="./[#TRUNK-5331] CohortMembership should not require a startDate_files/jira.webresources_global-static.css" data-wrm-key="jira.webresources:global-static" data-wrm-batch-type="resource" media="all">
+<script type="text/javascript" src="./[#TRUNK-5331] CohortMembership should not require a startDate_files/batch.js" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered=""></script><style type="text/css"></style><style type="text/css"></style>
+
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://issues.openmrs.org/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body data-gr-c-s-loaded="true" data-aui-version="6.0.0">
+<header id="previous-view">
+    <nav class="aui-toolbar">
+        <div class="toolbar-split toolbar-split-right">
+            <ul class="toolbar-group">
+                <li class="toolbar-item">
+                    <a href="https://issues.openmrs.org/browse/TRUNK-5331" class="toolbar-trigger">Back to previous view</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [TRUNK-5331]&nbsp;<a href="https://issues.openmrs.org/browse/TRUNK-5331">CohortMembership should not require a startDate</a>
+            <span class="subText">
+               Created: 2018-02-01                   &nbsp;Updated: 2018-04-14
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Code Review (Initial)</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="https://issues.openmrs.org/secure/BrowseProject.jspa?id=10000">OpenMRS Core</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Affects Version/s:</b></td>
+            <td>
+                                        <a title="Core 2.1.0 - Not a full Platform release; not LTS" href="https://issues.openmrs.org/issues/?jql=project%3D10000%20AND%20%22affectedVersion%22%3D17902%20ORDER%20BY%20priority%20ASC">Core 2.1.0</a>                        </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Fix Version/s:</b></td>
+            <td>
+                                        <a title="Platform 2.1.4" href="https://issues.openmrs.org/issues/?jql=project%3D10000%20AND%20%22fixVersion%22%3D23305%20ORDER%20BY%20priority%20ASC">Platform 2.1.4</a>                        </td>
+    </tr>
+    
+    </tbody></table>
+
+<br>
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top" width="30%">
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap="">
+                Should
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%">
+                                            <a class="user-hover" rel="dkayiwa" id="word_reporter_dkayiwa" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa">Daniel Kayiwa</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap="" width="30%">
+                                            <a class="user-hover" rel="saidrobley" id="word_assignee_saidrobley" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=saidrobley">Said Robley</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap="">
+            				Unresolved
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votes:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap="">
+                3
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-93919-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap="">
+                            community-priority                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap="" width="80%" colspan="3">
+                            0 minutes
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap="" width="80%" colspan="3">
+                            1 day, 2 hours
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap="" width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </tbody></table>
+
+
+
+    <br>
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+            <tbody><tr>
+            <td bgcolor="#f0f0f0" width="20%" valign="top">
+                <b>Issue Links:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" class="noPadding">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="blank">
+                                            <tbody><tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Causation</b><br>
+                            </td>
+                        </tr>
+                                                                <tr>
+            <td>
+                is caused by
+            </td>
+            <td>
+                <a href="https://issues.openmrs.org/browse/TRUNK-4906">
+                     <strike>TRUNK-4906</strike>                 </a>
+            </td>
+            <td>
+                Expanded cohort details
+            </td>
+            <td>
+                Closed
+            </td>
+        </tr>
+                                                <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Relation</b><br>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://issues.openmrs.org/browse/TRUNK-5211">
+                     <strike>TRUNK-5211</strike>                 </a>
+            </td>
+            <td>
+                Cohort membership should allow null s...
+            </td>
+            <td>
+                Closed
+            </td>
+        </tr>
+            <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://issues.openmrs.org/browse/TRUNK-5379">
+                     TRUNK-5379                 </a>
+            </td>
+            <td>
+                Cohort Membership: Resolve design inc...
+            </td>
+            <td>
+                Design
+            </td>
+        </tr>
+            <tr>
+            <td>
+                relates to
+            </td>
+            <td>
+                <a href="https://issues.openmrs.org/browse/TRUNK-5380">
+                     TRUNK-5380                 </a>
+            </td>
+            <td>
+                Cohort Membership: Performance Issues
+            </td>
+            <td>
+                Design
+            </td>
+        </tr>
+                                        <tr>
+            <td>
+                is related to
+            </td>
+            <td>
+                <a href="https://issues.openmrs.org/browse/TRUNK-5375">
+                     <strike>TRUNK-5375</strike>                 </a>
+            </td>
+            <td>
+                New Core 2.1 Cohort module significan...
+            </td>
+            <td>
+                Closed
+            </td>
+        </tr>
+                                                <tr>
+                            <td colspan="4" bgcolor="#f0f0f0">
+                                <b>Resolution</b><br>
+                            </td>
+                        </tr>
+                                    <tr>
+            <td>
+                resolves
+            </td>
+            <td>
+                <a href="https://issues.openmrs.org/browse/RCM-106">
+                     RCM-106                 </a>
+            </td>
+            <td>
+                Patient searches return 0 results on ...
+            </td>
+            <td>
+                In Progress
+            </td>
+        </tr>
+                                                                    </tbody></table>
+            </td>
+        </tr>
+    
+
+
+
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Complexity:</b></td>
+                <td id="customfield_10020-93919-value" class="value" bgcolor="#ffffff" width="80%">    Medium
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Watchers:</b></td>
+                <td id="customfield_10121-93919-value" class="value" bgcolor="#ffffff" width="80%">    <div class="shorten" id="customfield_10121-field">
+                                    <span class="tinylink">        <span class="user-hover" rel="rubailly" id="multiuser_cf_rubailly">Bailly Rurangirwa</span></span>,                                                 <span class="tinylink">        <span class="user-hover" rel="rs3524" id="multiuser_cf_rs3524">Becky Smith</span></span>,                                                 <span class="tinylink">        <span class="user-hover" rel="ryan84" id="multiuser_cf_ryan84">Christopher Reynolds</span></span>,                                                 <span class="tinylink">        <span class="user-hover" rel="dkayiwa" id="multiuser_cf_dkayiwa">Daniel Kayiwa</span></span>,                                                 <span class="tinylink">        <span class="user-hover" rel="darius" id="multiuser_cf_darius">Darius Jazayeri</span></span>,                                                 <span class="tinylink">        <span class="user-hover" rel="mogoodrich" id="multiuser_cf_mogoodrich">Mark Goodrich</span></span>,                                                 <span class="tinylink">        <span class="user-hover" rel="patrick" id="multiuser_cf_patrick">Patrick Luboobi</span></span>,                                                 <span class="tinylink">        <span class="user-hover" rel="saidrobley" id="multiuser_cf_saidrobley">Said Robley</span></span>,                                                 <span class="tinylink">        <span class="user-hover" rel="willhoss" id="multiuser_cf_willhoss">William Hoss</span></span>,                                                 <span class="tinylink">        <span class="user-hover" rel="wyclif" id="multiuser_cf_wyclif">Wyclif Luyima</span></span>                        </div>
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Designated Committer:</b></td>
+                <td id="customfield_11120-93919-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="dkayiwa" id="user_cf_dkayiwa">Daniel Kayiwa</span></span>
+    </td>
+            </tr>
+            </tbody></table>
+
+    <br>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tbody><tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap="" align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </tbody></table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr>
+        <td id="descriptionArea">
+            <p><b>Original Bug Report</b></p>
+
+<p>I am running openmrs Version: 2.1.2 and i am attempting to create a new cohort of patients with a certain encounter type - which is successful but returns 0 results yet the database has the information.</p>
+
+<p>Dev Notes:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">The cohort builder's CachingPatientFilter fetches a cohort of patients that match the selected criteria. And then calls Cohort.intersect() with another cohort containing all patients. This lead to allPatientsCohort.getMemberships().retainAll(selectedPatientsCohort.getMemberships()) which eventually calls CohortMembership.compareTo()
+</pre>
+</div></div>
+<p><b>Proposed Solution</b></p>
+
+<p>Change the new CohortMembership design to allow null start dates, and use this as the default. See: <a href="https://talk.openmrs.org/t/more-changes-to-the-new-cohort-membership-model/15818" class="external-link" rel="nofollow">https://talk.openmrs.org/t/more-changes-to-the-new-cohort-membership-model/15818</a></p>
+
+<p><b>Acceptance Criteria:</b></p>
+<ul>
+	<li>drop the not-null constraint on CohortMembership.startDate</li>
+	<li>remove any Java logic that defaults CohortMembership.startDate to new Date(), and instead default it to null.</li>
+	<li>Cohort.intersect should behave in a way that makes sense if you give it {Patient 123, startDate Jan 1} and {Patient 123, startDate Feb 15}.<br>
+ I would be satisfied if the output is either a cohort with {Patient 123, startDate Feb 15}, or else a cohort with {Patient 123, startDate null}<br>
+ but the dev who works on this can propose anything else that makes sense.</li>
+</ul>
+
+            <br>
+        </td>
+    </tr>
+    </tbody></table>
+
+    <br>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tbody><tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap="" align="center">
+            &nbsp;<font color="#ffffff"><b>Comments</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </tbody></table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tbody><tr id="comment-header-245069"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dkayiwa" id="word_commented_dkayiwa" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa">Daniel Kayiwa</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-02-01</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-245069"><td bgcolor="#ffffff">
+            <p>Committed at <a href="https://github.com/openmrs/openmrs-core/commit/8de2c00a3114938983955977826768cf530abd4a" class="external-link" rel="nofollow">https://github.com/openmrs/openmrs-core/commit/8de2c00a3114938983955977826768cf530abd4a</a></p>
+
+<p>And <a href="https://github.com/openmrs/openmrs-core/commit/0d871bf75e0a10f11fb6b03d4060e33da3d11c17" class="external-link" rel="nofollow">https://github.com/openmrs/openmrs-core/commit/0d871bf75e0a10f11fb6b03d4060e33da3d11c17</a></p>
+        </td></tr>
+                <tr id="comment-header-245073"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="darius" id="word_commented_darius" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius">Darius Jazayeri</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-02-01</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-245073"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa" class="user-hover" rel="dkayiwa">Daniel Kayiwa</a> I'm not comfortable with doing the fix this way. If I read this right you're just assuming that these operations will take place in the same minute, so the date comparison will be effectively ignored.</p>
+
+<p>I think that cohort builder is revealing a <em>different</em> problem with the new cohort code, i.e. there are use cases which don't really care about the start/end date. My counterproposal would be that:</p>
+<ul>
+	<li>when you instantiate a new cohort membership without specifying a date, the startDate should default to null (instead of now)</li>
+	<li>if necessary, we loosen any validation to allow for null startDate</li>
+</ul>
+
+
+<p>Also, from what you say in the ticket it seems like Cohort.intersect() doesn't work right at all, and we need to make its behavior more sophisticated (and add tests!).</p>
+
+<p>E.g. if cohort A has patient 123 starting from 2018-01-01 and cohort B has patient 123 starting from 2018-01-15, then taking the intersection should include patient 123, I guess with the later start date. Or maybe we just want a new convenience method like Cohort.intersectPatients(Cohort).</p>
+        </td></tr>
+                <tr id="comment-header-245084"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dkayiwa" id="word_commented_dkayiwa" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa">Daniel Kayiwa</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-02-02</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-245084"><td bgcolor="#ffffff">
+            <p>Reverted at <a href="https://github.com/openmrs/openmrs-core/compare/0d871bf75e0a...d1819f391dd3" class="external-link" rel="nofollow">https://github.com/openmrs/openmrs-core/compare/0d871bf75e0a...d1819f391dd3</a></p>
+        </td></tr>
+                <tr id="comment-header-245616"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dkayiwa" id="word_commented_dkayiwa" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa">Daniel Kayiwa</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-02-19</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-245616"><td bgcolor="#ffffff">
+            <p><a href="https://talk.openmrs.org/t/more-changes-to-the-new-cohort-membership-model/15818" class="external-link" rel="nofollow">https://talk.openmrs.org/t/more-changes-to-the-new-cohort-membership-model/15818</a></p>
+        </td></tr>
+                <tr id="comment-header-245989"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="wyclif" id="word_commented_wyclif" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif">Wyclif Luyima</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-01</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-245989"><td bgcolor="#ffffff">
+            <p>I'm a little confused by this ticket, if the issue is that Cohort.intersect delegates to another method that uses the equals method and not compareTo,&nbsp;then I don't think these changes address the core issue.</p>
+        </td></tr>
+                <tr id="comment-header-245993"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="darius" id="word_commented_darius" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius">Darius Jazayeri</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-01</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-245993"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif" class="user-hover" rel="wyclif">Wyclif Luyima</a>&nbsp;the fact that Cohort.intersect delegates to another method is an implementation detail, not the way that Cohort.intersect is <em>required</em> to behave.</p>
+
+<p>I wrote the ticket to say "Cohort.intersect should behave in a way that makes sense if you give it {Patient 123, startDate Jan 1} and {Patient 123, startDate Feb 15}". In my opinion this means that the intersection&nbsp;<em>should</em> contain Patient 123 in some way (which is the opposite of the current behavior).</p>
+        </td></tr>
+                <tr id="comment-header-246035"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="patrick" id="word_commented_patrick" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=patrick">Patrick Luboobi</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-01</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-246035"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa" class="user-hover" rel="dkayiwa">Daniel Kayiwa</a> Please review <br>
+<a href="https://github.com/openmrs/openmrs-core/pull/2609" class="external-link" rel="nofollow">https://github.com/openmrs/openmrs-core/pull/2609</a></p>
+        </td></tr>
+                <tr id="comment-header-246037"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dkayiwa" id="word_commented_dkayiwa" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa">Daniel Kayiwa</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-01</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-246037"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=patrick" class="user-hover" rel="patrick">Patrick Luboobi</a> There are comments on github for you to address</p>
+        </td></tr>
+                <tr id="comment-header-246051"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="wyclif" id="word_commented_wyclif" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif">Wyclif Luyima</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-01</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-246051"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius" class="user-hover" rel="darius">Darius Jazayeri</a> I understand what you mean, but what am saying is&nbsp;you can change the&nbsp;implementation&nbsp;of Cohort.intersect to do whatever you want without changing the design. If we want to change the design then I would think&nbsp;each&nbsp;should be addressed&nbsp;in&nbsp;a separate ticket.</p>
+        </td></tr>
+                <tr id="comment-header-246054"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="darius" id="word_commented_darius" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius">Darius Jazayeri</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-01</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-246054"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif" class="user-hover" rel="wyclif">Wyclif Luyima</a> originally this ticket was created because of <a href="https://talk.openmrs.org/t/cohort-builder-error-on-openmrs-2-1-2/15526" class="external-link" rel="nofollow">this bug report</a>&nbsp;from <a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=judy" class="user-hover" rel="judy">Judy Gichoya</a>. I then rephrased this ticket to be about a design change, which I proposed on <a href="https://talk.openmrs.org/t/more-changes-to-the-new-cohort-membership-model/15818" class="external-link" rel="nofollow">this thread</a>.&nbsp;(This will have the side effect of fixing Judy's issue.)</p>
+
+<p>So, I admit this might have been a bit confusing, but current this&nbsp;<em>is</em> the new ticket, and its justification is in the talk thread.</p>
+        </td></tr>
+                <tr id="comment-header-246118"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="wyclif" id="word_commented_wyclif" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif">Wyclif Luyima</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-01</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-246118"><td bgcolor="#ffffff">
+            <p>Personally, am not sold in on making start date nullable, I feel like a null startDate is&nbsp;bad data, a null start date doesn't make sense.</p>
+
+<p>I still think we can fix the bugs without making start date null by just fixing the implementation of Cohort.intersect.</p>
+        </td></tr>
+                <tr id="comment-header-246121"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="darius" id="word_commented_darius" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius">Darius Jazayeri</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-02</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-246121"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif" class="user-hover" rel="wyclif">Wyclif Luyima</a> I moved this discussion to Talk.</p>
+        </td></tr>
+                <tr id="comment-header-246833"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="darius" id="word_commented_darius" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius">Darius Jazayeri</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-19</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-246833"><td bgcolor="#ffffff">
+            <p>Looks like there were PR comments that need to be addressed.</p>
+
+<p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=patrick" class="user-hover" rel="patrick">Patrick Luboobi</a> are you still working on this?</p>
+        </td></tr>
+                <tr id="comment-header-246863"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="patrick" id="word_commented_patrick" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=patrick">Patrick Luboobi</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-20</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-246863"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=darius" class="user-hover" rel="darius">Darius Jazayeri</a> not working on this currently.</p>
+        </td></tr>
+                <tr id="comment-header-247040"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="mogoodrich" id="word_commented_mogoodrich" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=mogoodrich">Mark Goodrich</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-23</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247040"><td bgcolor="#ffffff">
+            <p>Please see duplicate issue <a href="https://issues.openmrs.org/browse/TRUNK-5211" title="Cohort membership should allow null start date, and should default to this" class="issue-link" data-issue-key="TRUNK-5211"><del>TRUNK-5211</del></a> for more discussion about this issue...</p>
+
+<p>fyi <a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=mseaton" class="user-hover" rel="mseaton">Mike Seaton</a></p>
+        </td></tr>
+                <tr id="comment-header-247314"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="saidrobley" id="word_commented_saidrobley" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=saidrobley">Said Robley</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-04-08</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247314"><td bgcolor="#ffffff">
+            <p>The intersect method of the Cohort class which takes two (cohort a, cohort b) arguments have the behavior of such that the cohortMemberships that exist in both is kept, then we checked if these cohortMembership is already present. I have also changed the restriction of the startDate in order to allow it be null.</p>
+        </td></tr>
+                <tr id="comment-header-247573"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="willhoss" id="word_commented_willhoss" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=willhoss">William Hoss</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-04-14</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247573"><td bgcolor="#ffffff">
+            <p>Said's Pull Request: <a href="https://github.com/openmrs/openmrs-core/pull/2649" class="external-link" rel="nofollow">https://github.com/openmrs/openmrs-core/pull/2649</a></p>
+        </td></tr>
+            </tbody></table>
+Generated at Mon Apr 16 22:23:11 UTC 2018 using JIRA 7.5.1#75006-sha1:7df2574a6cc842da727f00de4c5ce9ac07701368.
+
+
+</body></html>

@@ -1,0 +1,13 @@
+diff --git a/src/main/config/README.txt b/src/main/config/README.txt
+index 8f84c17..e6ad96b 100644
+--- a/src/main/config/README.txt
++++ b/src/main/config/README.txt
+@@ -71,7 +71,7 @@ or
+ LOGIN DETAILS (remember to change the password immediately after installation in a production environment)
+ =============
+ username - admin
+-password - test
++password - Admin123
+ 
+ 
+ CHANGING THE USERNAME AND PASSWORD

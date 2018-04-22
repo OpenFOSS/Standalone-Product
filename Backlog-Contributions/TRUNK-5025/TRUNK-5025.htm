@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://issues.openmrs.org/si/jira.issueviews:issue-html/TRUNK-5025/TRUNK-5025.html -->
+<html class="webkit chrome gr__issues_openmrs_org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[#TRUNK-5025] Obs.setValueAsString should support time zones and more date formats</title>
+    
+            
+        <script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"\"";
+WRM._unparsedData["jira.webresources:feature-flags.feature-flag-data"]="{\"enabled-feature-keys\":[\"com.atlassian.jira.agile.darkfeature.editable.detailsview\",\"nps.survey.inline.dialog\",\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint.enabled\",\"jira.plugin.devstatus.phasetwo\",\"jira.frother.reporter.field\",\"atlassian.rest.xsrf.legacy.enabled\",\"jira.issue.status.lozenge\",\"com.atlassian.jira.config.BIG_PIPE\",\"com.atlassian.jira.config.PDL\",\"jira.plugin.devstatus.phasetwo.enabled\",\"atlassian.aui.raphael.disabled\",\"app-switcher.new\",\"frother.assignee.field\",\"com.atlassian.jira.projects.ProjectCentricNavigation.Switch\",\"jira.onboarding.cyoa\",\"com.atlassian.jira.agile.darkfeature.kanplan.enabled\",\"com.atlassian.jira.config.ProjectConfig.MENU\",\"com.atlassian.jira.projects.sidebar.DEFER_RESOURCES\",\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions.enabled\",\"com.atlassian.jira.agile.darkfeature.sprint.goal.enabled\",\"jira.zdu.admin-updates-ui\",\"jira.zdu.jmx-monitoring\",\"sd.new.settings.sidebar.location.disabled\",\"jira.zdu.cluster-upgrade-state\",\"com.atlassian.jira.agile.darkfeature.splitissue\",\"com.atlassian.jira.config.CoreFeatures.LICENSE_ROLES_ENABLED\",\"com.atlassian.feedback.feedback-button-move-to-header-enable\",\"jira.export.csv.enabled\"],\"feature-flag-states\":{\"com.atlassian.jira.agile.darkfeature.kanplan\":false,\"jira.sal.host.connect.accessor.existing.transaction.will.create.transactions\":true,\"jira.jql.suggestrecentfields\":false,\"jira.instrumentation.laas\":false,\"com.atlassian.jira.agile.darkfeature.kanplan.epics.and.versions\":false,\"jira.jql.smartautoselectfirst\":false,\"com.atlassian.jira.agile.darkfeature.edit.closed.sprint\":false,\"jira.create.linked.issue\":true,\"com.atlassian.jira.upgrade.startup.fix.index\":true,\"com.atlassian.jira.agile.darkfeature.sprint.goal\":false}}";
+WRM._unparsedData["jira.webresources:default-comment-security-level.DefaultCommentSecurityLevelHelpLink"]="{\"extraClasses\":\"default-comment-level-help\",\"title\":\"Commenting on an Issue\",\"url\":\"https://docs.atlassian.com/jira/jcore-docs-075/Editing+and+collaborating+on+issues#Editingandcollaboratingonissues-restrictacomment\",\"isLocal\":false}";
+WRM._unparsedData["jira.request.correlation-id"]="\"a6aea9caa944fa\"";
+if(window.WRM._dataArrived)window.WRM._dataArrived();</script>
+<link type="text/css" rel="stylesheet" href="./TRUNK-5025_files/batch.css" data-wrm-key="_super" data-wrm-batch-type="context" media="all">
+<link type="text/css" rel="stylesheet" href="./TRUNK-5025_files/com.atlassian.auiplugin_aui-labels.css" data-wrm-key="com.atlassian.auiplugin:aui-labels" data-wrm-batch-type="resource" media="all">
+<link type="text/css" rel="stylesheet" href="./TRUNK-5025_files/jira.webresources_global-static.css" data-wrm-key="jira.webresources:global-static" data-wrm-batch-type="resource" media="all">
+<script type="text/javascript" src="./TRUNK-5025_files/batch.js" data-wrm-key="_super" data-wrm-batch-type="context" data-initially-rendered=""></script><style></style><style type="text/css"></style><style type="text/css"></style>
+
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://issues.openmrs.org/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body data-gr-c-s-loaded="true" data-aui-version="6.0.0">
+<header id="previous-view">
+    <nav class="aui-toolbar">
+        <div class="toolbar-split toolbar-split-right">
+            <ul class="toolbar-group">
+                <li class="toolbar-item">
+                    <a href="https://issues.openmrs.org/browse/TRUNK-5025" class="toolbar-trigger">Back to previous view</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [TRUNK-5025]&nbsp;<a href="https://issues.openmrs.org/browse/TRUNK-5025">Obs.setValueAsString should support time zones and more date formats</a>
+            <span class="subText">
+               Created: 2017-02-03                   &nbsp;Updated: 2018-04-12
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">In Progress</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Project:</b></td>
+        <td width="80%"><a href="https://issues.openmrs.org/secure/BrowseProject.jspa?id=10000">OpenMRS Core</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Component/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Affects Version/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Fix Version/s:</b></td>
+            <td>
+                            None
+                </td>
+    </tr>
+    
+    </tbody></table>
+
+<br>
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Type:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top" width="30%">
+            New Feature
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Priority:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap="">
+                TBD
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Reporter:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%">
+                                            <a class="user-hover" rel="wyclif" id="word_reporter_wyclif" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif">Wyclif Luyima</a>
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Assignee:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap="" width="30%">
+                                            <a class="user-hover" rel="milan" id="word_assignee_milan" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=milan">Milan Karunarathne</a>
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolution:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap="">
+            				Unresolved
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votes:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap="">
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Labels:</b>
+        </td>
+        <td id="labels-90864-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap="">
+                            observations                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Remaining Estimate:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap="" width="80%" colspan="3">
+                            0 minutes
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Time Spent:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap="" width="80%" colspan="3">
+                            1 hour
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Original Estimate:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap="" width="80%" colspan="3">
+                            Not Specified
+            		</td>
+    </tr>
+    
+    </tbody></table>
+
+
+
+    <br>
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+        
+    
+
+
+
+                        <tbody><tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Complexity:</b></td>
+                <td id="customfield_10020-90864-value" class="value" bgcolor="#ffffff" width="80%">    Low
+</td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Designated Committer:</b></td>
+                <td id="customfield_11120-90864-value" class="value" bgcolor="#ffffff" width="80%">        <span class="tinylink">        <span class="user-hover" rel="wyclif" id="user_cf_wyclif">Wyclif Luyima</span></span>
+    </td>
+            </tr>
+            </tbody></table>
+
+    <br>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tbody><tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap="" align="center">
+            &nbsp;<font color="#ffffff"><b>Description</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </tbody></table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr>
+        <td id="descriptionArea">
+            <p><tt>Obs.setValueAsString(String value)</tt> needs to be improved to support time zones and more date formats.</p>
+
+<h4><a name="DevNotes"></a>Dev Notes</h4>
+<p>When you call <tt>Obs.setValueAsString(String value)</tt> with a date string that contains a timezone component, it can't be parsed. The method supports a single format for datetime, date and time. It needs to be able to parse a date that has a time zone component and at least <a href="https://github.com/openmrs/openmrs-module-webservices.rest/blob/2.17/omod-common/src/main/java/org/openmrs/module/webservices/rest/web/ConversionUtil.java#L238" class="external-link" rel="nofollow">these</a> date formats that are supported by the REST module</p>
+            <br>
+        </td>
+    </tr>
+    </tbody></table>
+
+    <br>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tbody><tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap="" align="center">
+            &nbsp;<font color="#ffffff"><b>Comments</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </tbody></table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="grid" style="margin: 0;">
+                <tbody><tr id="comment-header-236167"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dkayiwa" id="word_commented_dkayiwa" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa">Daniel Kayiwa</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2017-02-06</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-236167"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif" class="user-hover" rel="wyclif">Wyclif Luyima</a> do you mind putting some more description or examples for this? <img class="emoticon" src="./TRUNK-5025_files/smile.png" height="16" width="16" align="absmiddle" alt="" border="0"></p>
+        </td></tr>
+                <tr id="comment-header-236419"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="laueri" id="word_commented_laueri" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=laueri">Ira Lauer</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2017-02-13</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-236419"><td bgcolor="#ffffff">
+            <p>Currently Obs seems to support only  3 kinds of time recording,"yyyy-MM-dd HH:mm","HH:mm",and "yyyy-MM-dd". This ticket wants to add additional patterns. I think I could tackle this as I think it requires adding the relevant time patterns to  Obs.setValueAsString(), adding this patterns as fields in Obs and then adding the time formats to both HL7Constants(I think) and to ConceptDatatype and then relevant unit tests I am unsure how the UUIDs would be generated for the new time formats and what the HL7 code for these time formats would be. </p>
+
+
+        </td></tr>
+                <tr id="comment-header-236432"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dkayiwa" id="word_commented_dkayiwa" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa">Daniel Kayiwa</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2017-02-14</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-236432"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif" class="user-hover" rel="wyclif">Wyclif Luyima</a> any response to the above? <img class="emoticon" src="./TRUNK-5025_files/smile.png" height="16" width="16" align="absmiddle" alt="" border="0"></p>
+        </td></tr>
+                <tr id="comment-header-236446"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="wyclif" id="word_commented_wyclif" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif">Wyclif Luyima</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2017-02-14</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-236446"><td bgcolor="#ffffff">
+            <p>Note that the currently supported format only differ in terms of precision and NOT really format i.e one has a minute precision another has a date precision while the other only has a time component. What the ticket is requiring is to support more patterns and more precisions e.g it should support  <tt>dd/MM/yyyy</tt> and <tt>yyyy-MM-dd'T'HH:mm:ss.SSSZ</tt>. At least we should support all the patterns and precisions supported by the webservices rest module</p>
+        </td></tr>
+                <tr id="comment-header-243595"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="mayank8318" id="word_commented_mayank8318" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=mayank8318">Mayank Vaidya</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2017-12-22</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-243595"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=wyclif" class="user-hover" rel="wyclif">Wyclif Luyima</a> Can I work on this one?</p>
+        </td></tr>
+                <tr id="comment-header-243648"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="mayank8318" id="word_commented_mayank8318" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=mayank8318">Mayank Vaidya</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2017-12-25</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-243648"><td bgcolor="#ffffff">
+            <p>PR <a href="https://github.com/openmrs/openmrs-core/pull/2493" class="external-link" rel="nofollow">https://github.com/openmrs/openmrs-core/pull/2493</a></p>
+
+<p>&nbsp;</p>
+        </td></tr>
+                <tr id="comment-header-243927"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="dkayiwa" id="word_commented_dkayiwa" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=dkayiwa">Daniel Kayiwa</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-01-04</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-243927"><td bgcolor="#ffffff">
+            <p><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=mayank8318" class="user-hover" rel="mayank8318">Mayank Vaidya</a> can you add some unit tests for your changes?</p>
+        </td></tr>
+                <tr id="comment-header-247002"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="milan" id="word_commented_milan" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=milan">Milan Karunarathne</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-03-23</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247002"><td bgcolor="#ffffff">
+            <p>Currently I'm working on <a href="https://issues.openmrs.org/browse/RESTWS-644" title="ObsResource needs to support time zones and more date formats" class="issue-link" data-issue-key="RESTWS-644">RESTWS-644</a> issue. My idea is, it will be better, if fix this issue before fixing that issue. I read this issue, comments and <a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=mayank8318" class="user-hover" rel="mayank8318">Mayank Vaidya</a>'s pull request also.</p>
+
+<p>Can I assign this issue and start with this issue?</p>
+        </td></tr>
+                <tr id="comment-header-247532"><td bgcolor="#f0f0f0">
+            Comment by  
+                                                        <a class="user-hover" rel="willhoss" id="word_commented_willhoss" href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=willhoss">William Hoss</a>
+                                        <font size="-2">
+            [
+                <font color="#336699">2018-04-12</font>
+
+                            ]
+            </font>
+
+        </td></tr>
+        <tr id="comment-body-247532"><td bgcolor="#ffffff">
+            <p><tt><a href="https://issues.openmrs.org/secure/ViewProfile.jspa?name=milan" class="user-hover" rel="milan">Milan Karunarathne</a> it's worth noting that the setValueAsBoolean() method appears to be not functioning as intended, preventing the initial PR for this to be resolved. If I understand this correctly the test I wrote below should be functional for this User Story to be worked.</tt></p>
+
+
+<p>&gt;&gt;&nbsp; api/src/test/java/org/openmrs/ObsTest.java &lt;&lt;</p>
+
+<p><tt>/**</tt><br>
+<tt>*&nbsp;@see&nbsp;Obs#setValueBoolean(Boolean)</tt><br>
+<tt>*/</tt><br>
+<tt>@Test</tt><br>
+<tt>public void&nbsp;setValueAsBoolean_shouldSucceedWhenProvidedABoolean() {</tt><br>
+<tt>&nbsp; &nbsp;Obs obs =&nbsp;new&nbsp;Obs();</tt><br>
+<tt>&nbsp; &nbsp;ConceptDatatype cdt =&nbsp;new&nbsp;ConceptDatatype();</tt><br>
+<tt>&nbsp; &nbsp;cdt.setUuid(ConceptDatatype.BOOLEAN_UUID);</tt><br>
+<tt>&nbsp; &nbsp;Concept c =&nbsp;new&nbsp;Concept();</tt><br>
+<tt>&nbsp; &nbsp;c.setDatatype(cdt);</tt><br>
+<tt>&nbsp; &nbsp;assertTrue(c.getDatatype().isBoolean());</tt></p>
+
+
+<p><tt>&nbsp; &nbsp;obs.setConcept(c);</tt><br>
+<tt>&nbsp; &nbsp;obs.setValueBoolean(Boolean.TRUE);</tt><br>
+<tt>&nbsp; &nbsp;assertTrue(obs.getValueBoolean());</tt><br>
+<tt>}</tt></p>
+        </td></tr>
+            </tbody></table>
+Generated at Mon Apr 16 22:31:09 UTC 2018 using JIRA 7.5.1#75006-sha1:7df2574a6cc842da727f00de4c5ce9ac07701368.
+
+
+</body></html>

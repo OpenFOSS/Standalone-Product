@@ -1,0 +1,97 @@
+diff --git a/api/src/main/java/org/openmrs/Cohort.java b/api/src/main/java/org/openmrs/Cohort.java
+index 23fcaa989..36949986b 100644
+--- a/api/src/main/java/org/openmrs/Cohort.java
++++ b/api/src/main/java/org/openmrs/Cohort.java
+@@ -268,8 +268,32 @@ public class Cohort extends BaseChangeableOpenmrsData {
+ 		Cohort ret = new Cohort();
+ 		ret.setName("(" + (a == null ? "NULL" : a.getName()) + " * " + (b == null ? "NULL" : b.getName()) + ")");
+ 		if (a != null && b != null) {
+-			ret.getMemberships().addAll(a.getMemberships());
+-			ret.getMemberships().retainAll(b.getMemberships());
++
++			Collection<CohortMembership> retMembers = ret.getMemberships();
++			
++			/*
++			 * Remove duplicate Patient IDs from the intersection
++			 */
++			for (CohortMembership cm: a.getMemberships()) {
++				for (CohortMembership cm2: b.getMemberships()) {
++					if(cm2.getPatientId().equals(cm.getPatientId())){
++						boolean idExists = false;
++						for(CohortMembership cmret: retMembers){
++							
++							if (cmret.getPatientId().equals(cm.getPatientId())){ 
++								idExists = true; 
++							} 
++						}
++						if(!idExists) {
++							CohortMembership retainedMember = new CohortMembership(cm.getPatientId(), null);
++							retainedMember.setEndDate(cm.getEndDate());
++							retainedMember.setVoided(cm.getVoided());
++							retainedMember.setUuid(cm.getUuid());
++							retMembers.add(retainedMember); 
++						} 
++					} 
++				} 
++			}
+ 		}
+ 		return ret;
+ 	}
+diff --git a/api/src/test/java/org/openmrs/CohortTest.java b/api/src/test/java/org/openmrs/CohortTest.java
+index d6e84f94e..258882ac2 100644
+--- a/api/src/test/java/org/openmrs/CohortTest.java
++++ b/api/src/test/java/org/openmrs/CohortTest.java
+@@ -13,6 +13,10 @@ import org.apache.commons.lang3.StringUtils;
+ import org.junit.Assert;
+ import org.junit.Test;
+ 
++import static org.junit.Assert.assertEquals;
++import static org.junit.Assert.assertNull;
++import static org.junit.Assert.assertTrue;
++
+ import java.text.SimpleDateFormat;
+ import java.util.ArrayList;
+ import java.util.Arrays;
+@@ -36,7 +40,6 @@ public class CohortTest {
+ 		
+ 		Cohort cohort = new Cohort("name", "description", ids);
+ 		Arrays.stream(ids).forEach(id -> assertTrue(cohort.contains(id)));
+-		
+ 	}
+ 	
+ 	@Test
+@@ -165,4 +168,34 @@ public class CohortTest {
+         double secondsToSet = (endTime - startTime)/1000;
+         Assert.assertTrue("Setting cohort of size " + cohortSize + " took " + secondsToSet + " seconds", secondsToSet < 5);
+     }
++
++	@Test
++	public void intersect_shouldNotContainDuplicatePatientIDs() throws Exception {
++
++		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
++		Date startDate = dateFormat.parse("2017-01-01 00:00:00");
++		Date startDate2 = dateFormat.parse("20017-02-15 00:00:00");
++
++		Cohort cohortA = new Cohort(3);
++		Cohort cohortB = new Cohort (4);
++
++		CohortMembership membershipAOne = new CohortMembership(7, startDate);
++		CohortMembership membershipATwo = new CohortMembership(7, startDate2);
++		CohortMembership membershipBOne = new CohortMembership(7, startDate);
++		CohortMembership membershipBTwo = new CohortMembership(7, startDate2);
++
++		cohortA.addMembership(membershipAOne);
++		cohortA.addMembership(membershipATwo);
++
++		cohortB.addMembership(membershipBOne);
++		cohortB.addMembership(membershipBTwo);
++
++		Cohort cohortIntersect = Cohort.intersect(cohortA,cohortB);
++		cohortIntersect.getMemberships().forEach(m -> {
++			assertTrue(m.getPatientId().equals(7));
++			assertNull(m.getStartDate());
++		});
++		assertEquals(1, cohortIntersect.getMemberships().size());
++
++	}
+ }
