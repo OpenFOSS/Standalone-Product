@@ -73,6 +73,8 @@ Additionally, to address the needs of our code’s maintainers, we created a UML
 
 ## Code Contribution #4 TRUNK-5382
 ### Description
+The method getSetmembers() returns all members which includes both retired and unretired members, and it does not have an option to exclude retired members, so in order to enhance the user experience OpenFoss has claimed this issue and made an attempt to add this feature.  We have added a method called getSetMembers(Boolean includeRetired)  if the parameter is set to true the method returns the same as getSEtMembers() otherwise returns all set members excluding retired members.
+
 ### Links
 * [Pull Request](Code-Contributions/TRUNK-5382/Pull_Request/2654.html)
 * [git diff](Code-Contributions/TRUNK-5382/TRUNK-5382.txt)
