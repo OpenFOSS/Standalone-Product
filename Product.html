@@ -32,7 +32,13 @@
 <li><a href="#note">Note for Static HTML Files</a></li>
 </ol></li>
 <li><a href="#licence">Licence</a></li>
-<li><a href="#ref">References</a></li>
+<li><a href="#ref">References</a>
+<ol>
+<li><a href="#STAND-79">STAND-79</a></li>
+<li><a href="#TRUNK-3401">TRUNK-3401</a></li>
+<li><a href="#TRUNK-5331">TRUNK-5331</a></li>
+<li><a href="#TRUNK-5382">TRUNK-5382</a></li>
+</ol></li>
 </ol>
 <p><a name="contributions"></a></p>
 <h1 id="contributions">Contributions</h1>
@@ -71,7 +77,7 @@
 </ul>
 <p>** the raw git diff exists at the bottom of this document under ** <a href="#TRUNK-3401"><em>Code Contribution #2 TRUNK-3401</em></a></p>
 <p><a name="code-3"></a></p>
-<h2 id="code-contribution-3-trunk-5331i">Code Contribution #3 TRUNK-5331i</h2>
+<h2 id="code-contribution-3-trunk-5331">Code Contribution #3 TRUNK-5331</h2>
 <h3 id="description-2">Description</h3>
 <p>OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS’ extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, you can view OpenMRS’ JIRA issue, [TRUNK-5331](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]</p>
 <p>This contribution added 46 lines of code to the product; it added one new test (29 lines) and refactored one function (17 lines). This contribution represents 20 hours of effort, and you may view the exact changes we made in <a href="Code-Contributions/TRUNK-5331/TRUNK-5331.txt">git diff</a></p>
@@ -333,7 +339,7 @@ index 79b5c7855..5535da9d6 100644
 +  &lt;users user_id=&quot;19901&quot; person_id=&quot;19901&quot; system_id=&quot;icap&quot; username=&quot;icaptechTeam&quot; password=&quot;eeeda5c0cc3837151b2d61cfeab54a91fb0c27d&quot; salt=&quot;42af4c437a47cd778a54f6564d71b3cd6e8e5ca&quot; secret_question=&quot;&quot; creator=&quot;1&quot; date_created=&quot;2008-08-15 15:57:09.0&quot; changed_by=&quot;1&quot; date_changed=&quot;2008-08-18 11:51:56.0&quot; retired=&quot;false&quot; uuid=&quot;c98a1558-e131-11de-babe-001e378eu67d&quot;/&gt;
  &lt;/dataset&gt;
 </code></pre>
-<h2 id="code-contribution-3-trunk-5331"><a name='TRUNK-5331'>Code Contribution #3 TRUNK-5331</h2>
+<h2 id="code-contribution-3-trunk-5331-1"><a name='TRUNK-5331'>Code Contribution #3 TRUNK-5331</h2>
 <pre><code>diff --git a/api/src/main/java/org/openmrs/Cohort.java b/api/src/main/java/org/openmrs/Cohort.java
 index 23fcaa989..36949986b 100644
 --- a/api/src/main/java/org/openmrs/Cohort.java

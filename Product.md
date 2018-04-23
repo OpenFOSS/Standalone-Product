@@ -31,6 +31,10 @@ This document contains the product deliverables from the OpenFOSS team throughou
     1. [Note for Static HTML Files](#note)
 6. [Licence](#licence)
 7. [References](#ref)
+    1. [STAND-79](#STAND-79)
+    2. [TRUNK-3401](#TRUNK-3401)
+    3. [TRUNK-5331](#TRUNK-5331)
+    4. [TRUNK-5382](#TRUNK-5382)
 
  <a name="contributions"></a>
 # Contributions
@@ -74,7 +78,7 @@ This information is important to ensure that any new changes made for this issue
 ** the raw git diff exists at the bottom of this document under ** [*Code Contribution #2 TRUNK-3401*](#TRUNK-3401)
 
  <a name="code-3"></a>
-## Code Contribution #3 TRUNK-5331i
+## Code Contribution #3 TRUNK-5331
 ### Description
 OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS’ extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, you can view OpenMRS’ JIRA issue, [TRUNK-5331](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]
 
