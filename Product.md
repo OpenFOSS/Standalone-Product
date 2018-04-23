@@ -33,8 +33,8 @@ This document contains the product deliverables from the OpenFOSS team throughou
 7. [References](#ref)
     1. [STAND-79](#STAND-79)
     2. [TRUNK-3401](#TRUNK-3401)
-    3. [TRUNK-5331](#TRUNK-5331)
-    4. [TRUNK-5382](#TRUNK-5382)
+    3. [TRUNK-5331](#code-3)
+    4. [TRUNK-5382](#code-4)
 
  <a name="contributions"></a>
 # Contributions
@@ -80,9 +80,9 @@ This information is important to ensure that any new changes made for this issue
  <a name="code-3"></a>
 ## Code Contribution #3 TRUNK-5331
 ### Description
-OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS’ extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, you can view OpenMRS’ JIRA issue, [TRUNK-5331](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]
+OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS’ extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, one may view OpenMRS’ JIRA issue, [TRUNK-5331](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]
 
-This contribution added 46 lines of code to the product; it added one new test (29 lines) and refactored one function (17 lines). This contribution represents 20 hours of effort, and you may view the exact changes we made in [git diff](Code-Contributions/TRUNK-5331/TRUNK-5331.txt)
+This contribution added 46 lines of code to the product; it added one new test (29 lines) and refactored one function (17 lines). This contribution represents 20 hours of effort, and one may view the exact changes we made in [git diff](Code-Contributions/TRUNK-5331/TRUNK-5331.txt)
 
 OpenMRS’ automated code review of this contribution, which can be found in this [Pull Request](Code-Contributions/TRUNK-5331/Pull_Request/2649.html), showed that we met all of their quality standards, which included (but were not limited to):
 * Passing integration testing
