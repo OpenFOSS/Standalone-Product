@@ -36,8 +36,8 @@
 <ol>
 <li><a href="#STAND-79">STAND-79</a></li>
 <li><a href="#TRUNK-3401">TRUNK-3401</a></li>
-<li><a href="#TRUNK-5331">TRUNK-5331</a></li>
-<li><a href="#TRUNK-5382">TRUNK-5382</a></li>
+<li><a href="#code-3">TRUNK-5331</a></li>
+<li><a href="#code-4">TRUNK-5382</a></li>
 </ol></li>
 </ol>
 <p><a name="contributions"></a></p>
@@ -79,15 +79,10 @@
 <p><a name="code-3"></a></p>
 <h2 id="code-contribution-3-trunk-5331">Code Contribution #3 TRUNK-5331</h2>
 <h3 id="description-2">Description</h3>
-<p>OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS’ extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, you can view OpenMRS’ JIRA issue, [TRUNK-5331](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]</p>
-<p>This contribution added 46 lines of code to the product; it added one new test (29 lines) and refactored one function (17 lines). This contribution represents 20 hours of effort, and you may view the exact changes we made in <a href="Code-Contributions/TRUNK-5331/TRUNK-5331.txt">git diff</a></p>
-<p>OpenMRS’ automated code review of this contribution, which can be found in this <a href="Code-Contributions/TRUNK-5331/Pull_Request/2649.html">Pull Request</a>, showed that we met all of their quality standards, which included (but were not limited to):</p>
-<ul>
-<li>Passing integration testing</li>
-<li>Increasing the product’s overall code coverage</li>
-<li>Adhering to style conventions.</li>
-</ul>
-<p>Additionally, to address the needs of our code’s maintainers, we created a UML activity diagram (consider adding link) depicting the intended behavior of the function.</p>
+<p>OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS' extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, you can view the [OpenMRS User Story](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]</p>
+<p>This contribution added 46 lines of code to the product; it added one new test (29 lines) and refactored one function (17 lines). This contribution represents 20 hours of effort, and you may view the exact changes we made in the corresponding diff under <a href="Code-Contributions/TRUNK-5331/TRUNK-5331.txt">Code Contribution #3</a>.</p>
+<p>OpenMRS' automated code review of this contribution, which can be found in the <a href="Code-Contributions/TRUNK-5331/Pull_Request/2649.html">Pull Request</a>, showed that we met all of their quality standards, which included (but were not limited to): *Passing integration testing *Increasing the product's overall code coverage *Adhering to style conventions.</p>
+<p>Additionally, to address the needs of our code's maintainers, we created a UML activity diagram depicting the intended behavior of the function. The diagram can be found under <a href="#TRUNK-5331-UML"><em>Code Contribution #3 UML Activity Diagram</em></a>.</p>
 <h3 id="links-2">Links</h3>
 <ul>
 <li><a href="Code-Contributions/TRUNK-5331/Pull_Request/2649.html">Pull Request</a></li>
@@ -109,6 +104,7 @@
 <p><a name="backlog-1"></a></p>
 <h2 id="backlog-contribution-1-trunk-188">Backlog Contribution #1 TRUNK-188</h2>
 <h3 id="description-4">Description</h3>
+<p>This artifact is the result of OpenFOSS attempting to contribute to TRUNK-188. This user story described a bug that occurs when trying to access a specific module. After looking into this issue, our team discovered that the bug reported here is no longer relevant to the current version of OpenMRS. This was due to the MRNgen module that was causing the errors to be replaced with a newer module IDGen. Knowing this we shared our findings and made recommendations to the maintainers to close this user story.</p>
 <h3 id="links-4">Links</h3>
 <p><img src="Backlog-Contributions/TRUNK-188/TRUNK-188_relevant_contribution.png" alt="TRUNK-188 Contribution" /></p>
 <ul>
@@ -128,6 +124,7 @@
 <p><a name="backlog-3"></a></p>
 <h2 id="backlog-contribution-3-trunk-5372">Backlog Contribution #3 TRUNK-5372</h2>
 <h3 id="description-6">Description</h3>
+<p>Our team found that the OpenMRS team had duplicated one of their requirements and alerted them to the potential redundancy. OpenMRS has since marked TRUNK-5372 as a duplicate of the other item we found, TRUNK-5366.</p>
 <h3 id="links-6">Links</h3>
 <ul>
 <li><a href="Backlog-Contributions/TRUNK-5372/TRUNK-5372.htm">OpenMRS User Story</a></li>
@@ -136,7 +133,7 @@
 <p><a name="backlog-4"></a></p>
 <h2 id="backlog-contribution-4-trunk-5391">Backlog Contribution #4 TRUNK-5391</h2>
 <h3 id="description-7">Description</h3>
-<p>While the OpenMRS team was pair programming on another OpenMRS backlog issue, we realized that tests were failing because there was a method in the openmrs-core/api/src/main/java/org/openmrs/Obs.java called setValueBoolean(Boolean) that was setting only null and nothing else when a Boolean is passed in. The OpenMRS team added value by opening a bug report in the OpenMRS Bug tracking tool called Jira for the issue to be assessed. We also recommended various tests that could be used to identify the issue.</p>
+<p>While the OpenFOSS team was pair programming on another OpenMRS backlog issue, we realized that tests were failing because there was a method in the openmrs-core/api/src/main/java/org/openmrs/Obs.java called setValueBoolean(Boolean) that was setting only null and nothing else when a Boolean is passed in. The OpenMRS team added value by opening a bug report in the OpenMRS Bug tracking tool called Jira for the issue to be assessed. We also recommended various tests that could be used to identify the issue.</p>
 <h3 id="links-7">Links</h3>
 <ul>
 <li><a href="Backlog-Contributions/TRUNK-5391/TRUNK-5391.htm">OpenMRS User Story</a></li>
@@ -438,6 +435,8 @@ index d6e84f94e..258882ac2 100644
 + }
  }
 </code></pre>
+<h3 id="code-contribution-3-uml-activity-diagram"><a name ='TRUNK-5331-UML'>Code Contribution #3 UML Activity Diagram</h3>
+<p><img src="Code-Contributions/TRUNK-5331/CohortIntersect.jpg" /></p>
 <h2 id="code-contribution-4-trunk-5382-1"><a name='TRUNK-5382'>Code Contribution #4 TRUNK-5382</h2>
 <pre><code>diff --git a/api/src/main/java/org/openmrs/Concept.java b/api/src/main/java/org/openmrs/Concept.java
 index e3a7f0e4f..2dabc769c 100644
