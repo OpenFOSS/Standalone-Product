@@ -80,17 +80,16 @@ This information is important to ensure that any new changes made for this issue
  <a name="code-3"></a>
 ## Code Contribution #3 TRUNK-5331
 ### Description
-OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS’ extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, one may view OpenMRS’ JIRA issue, [TRUNK-5331](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]
+OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS' extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, you can view the [OpenMRS User Story](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]
 
-This contribution added 46 lines of code to the product; it added one new test (29 lines) and refactored one function (17 lines). This contribution represents 20 hours of effort, and one may view the exact changes we made in [git diff](Code-Contributions/TRUNK-5331/TRUNK-5331.txt)
+This contribution added 46 lines of code to the product; it added one new test (29 lines) and refactored one function (17 lines). This contribution represents 20 hours of effort, and you may view the exact changes we made in the corresponding diff under [Code Contribution #3](Code-Contributions/TRUNK-5331/TRUNK-5331.txt).
 
-OpenMRS’ automated code review of this contribution, which can be found in this [Pull Request](Code-Contributions/TRUNK-5331/Pull_Request/2649.html), showed that we met all of their quality standards, which included (but were not limited to):
-* Passing integration testing
-* Increasing the product’s overall code coverage
-* Adhering to style conventions.
+OpenMRS' automated code review of this contribution, which can be found in the [Pull Request](Code-Contributions/TRUNK-5331/Pull_Request/2649.html), showed that we met all of their quality standards, which included (but were not limited to):
+*Passing integration testing
+*Increasing the product's overall code coverage
+*Adhering to style conventions.
 
-Additionally, to address the needs of our code’s maintainers, we created a UML activity diagram (consider adding link) depicting the intended behavior of the function.
-
+Additionally, to address the needs of our code's maintainers, we created a UML activity diagram depicting the intended behavior of the function. The diagram can be found under [*Code Contribution #3 UML Activity Diagram*](#TRUNK-5331-UML).
 
 ### Links
 * [Pull Request](Code-Contributions/TRUNK-5331/Pull_Request/2649.html)
@@ -135,6 +134,7 @@ This artifact is the result of the OpenFOSS team working together on a code cont
  <a name="backlog-3"></a>
 ## Backlog Contribution #3 TRUNK-5372
 ### Description
+Our team found that the OpenMRS team had duplicated one of their requirements and alerted them to the potential redundancy. OpenMRS has since marked TRUNK-5372 as a duplicate of the other item we found, TRUNK-5366.
 ### Links
 * [OpenMRS User Story](Backlog-Contributions/TRUNK-5372/TRUNK-5372.htm)
 
@@ -143,7 +143,7 @@ This artifact is the result of the OpenFOSS team working together on a code cont
  <a name="backlog-4"></a>
 ## Backlog Contribution #4 TRUNK-5391
 ### Description
-While the OpenMRS team was pair programming on another OpenMRS backlog issue, we realized that tests were failing because there was a method in the openmrs-core/api/src/main/java/org/openmrs/Obs.java called setValueBoolean(Boolean) that was setting only null and nothing else when a Boolean is passed in.
+While the OpenFOSS team was pair programming on another OpenMRS backlog issue, we realized that tests were failing because there was a method in the openmrs-core/api/src/main/java/org/openmrs/Obs.java called setValueBoolean(Boolean) that was setting only null and nothing else when a Boolean is passed in.
 The OpenMRS team added value by opening a bug report in the OpenMRS Bug tracking tool called Jira for the issue to be assessed. We also recommended various tests that could be used to identify the issue. 
 
 ### Links
@@ -448,7 +448,9 @@ Therefore, anyone is free to make modifications to the project files as far as t
     +
     + }
      }
-
+### <a name ='TRUNK-5331-UML'>Code Contribution #3 UML Activity Diagram
+![](Code-Contributions/TRUNK-5331/CohortIntersect.jpg)
+    
 ## <a name='TRUNK-5382'>Code Contribution #4 TRUNK-5382
 
     diff --git a/api/src/main/java/org/openmrs/Concept.java b/api/src/main/java/org/openmrs/Concept.java
