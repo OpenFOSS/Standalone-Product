@@ -113,6 +113,8 @@ The method getSetmembers() returns all members which includes both retired and u
  <a name="backlog-1"></a>
 ## Backlog Contribution #1 TRUNK-188
 ### Description
+TRUNK-188 was created to solve a bug that occurs when trying to access MRNGen module. After looking deep into this issue we found out that this bug does not exist anymore, and has been solved when the MRNgen module was replace with IDGen module this replacement takes care of the problem. We have made recommendation to the maintainers to close this issue.
+
 ### Links
 ![TRUNK-188 Contribution](Backlog-Contributions/TRUNK-188/TRUNK-188_relevant_contribution.png)
 * [OpenMRS User Story](Backlog-Contributions/TRUNK-188/TRUNK-188.htm)
