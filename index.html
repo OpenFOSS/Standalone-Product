@@ -1,15 +1,15 @@
 <p><a name="introduction"></a></p>
 <h1 id="introduction">Introduction</h1>
-<p>This document describes and links to the user stories from OpenMRS that the OpenFOSS team comprising of the following individuals worked on:</p>
+<p>This is a compilation of what the OpenFOSS team produced while working in an agile team on a large software engineering project called OpenMRS. The OpenFOSS team is comprised of the following individuals:</p>
 <ul>
-<li>William Hause</li>
+<li>Gideon Nyamachere</li>
 <li>Jonathan Grant</li>
 <li>Said Robley</li>
-<li>Gideon Nyamachere</li>
+<li>William Hause</li>
 </ul>
 <p><a name="execsummary"></a></p>
 <h1 id="executive-summary">Executive Summary</h1>
-<p>This document contains the product deliverables from the OpenFOSS team throughout their senior CS4260 course. This aims to demonstrate the value added from each of these contributions as well as provide the context and content required for someone to continue development with the contributions provided. The OpenFOSS team worked to provide value in the form of backlog grooming and code contributions to the OpenMRS product. OpenMRS exists to build an open source medical record system platform.</p>
+<p>The OpenFOSS team worked to provide value in the form of backlog grooming and code contributions to OpenMRS which develops and maintains a humanitarian open source medical record system platform. This document contains the product deliverables from the OpenFOSS team throughout their senior CS4260 course. The examples within demonstrate the value added to OpenMRS, as well as provide the context and content required for someone to continue development with the provided contributions.</p>
 <p><a name="recursion"></a></p>
 <h1 id="table-of-contents">Table of Contents</h1>
 <ol>
@@ -56,19 +56,15 @@
 <p><a name="code-2"></a></p>
 <h2 id="code-contribution-2-trunk-3401">Code Contribution #2 TRUNK-3401</h2>
 <h3 id="description-1">Description</h3>
-<p>TRUNK-3401 is an OpenMRS backlog issue that addresses a bug that was discovered in OpenMRS version 1.9. If a call is made to encounter.setProvider(User) method in api/src/main/java/org/openmrs/api/impl/ProviderServiceImpl.java and the User does not have a Provider object associated, it throws an error. Though the current version at the time of writing this note was 2.1, the OpenMRS community wanted this method fixed to provide backwards-compatibility and support for modules that use this method. The specifications stated the following requirements to fix the bug:</p>
-<ol>
-<li>Create a convenience method in ProviderServiceImp.java class that takes a user and creates a Provider for them.</li>
-<li>Create a Provider record object for the User if the Provider is not already assigned to this User.</li>
-<li>An exception should be thrown if the Provider Object could not be created for the user.</li>
-</ol>
-<p>OpenFOSS team added value to OpenMRS by making the following changes to satisfy the requirements:</p>
+<p>TRUNK-3401 is an OpenMRS backlog user story that had been outstanding since 2012. This user story addressed a bug that was discovered in an older version of OpenMRS. In order to provide backwards compatibility, the OpenMRS community wanted an existing method to be updated to automatically handle missing medical providers. Our teams changes resolved this issue and allowed for users of older versions of OpenMRS to easily upgrade.</p>
+<p>OpenFOSS team resolved this user story by contributing the following: We added tests to ensure that we got the desired outcome, which ensures this code does not regress in the future. We created a method allowing a patient to be assigned a medical provider if one does not exist for a patient. If the provider is already assigned, it will return the existing provider.</p>
+<p>Our contribution also reflects recommendations made by the OpenMRS community members. Including: Additional logging Re-ordering of conditional checks within our contribution. Documentation changes within our code to ensure that any new changes made to this method do not regress the code and intent.</p>
+<p>OpenMRS' automated code review of this contribution, showed that we met all of their quality standards, which included (but were not limited to):</p>
 <ul>
-<li>We added a method to the interface to ensure that the method is always implemented by any inheriting classes.</li>
-<li>We added some tests to ensure that we got the desired outcome which also increased the test coverage.</li>
-<li>Then created a method to allow a user to be assigned a Provider object if none is already assigned and if the Provider is already assigned, it will return the Provider.</li>
+<li>Passing integration testing</li>
+<li>Increasing the product's overall code coverage</li>
+<li>Adhering to style conventions. All of the above can be found in the GitHub pull request for this user story.</li>
 </ul>
-<p>We made a number of GitHub pull requests for this issue, and the OpenMRS developer community responded with a number of recommendations that are reflected in the current pull request. Some changes included, the addition of logging as well as the message to be logged, and the order of the if/else checks in the method. This information is important to ensure that any new changes made for this issue do not regress the code and intent.</p>
 <h3 id="links-1">Links</h3>
 <ul>
 <li><a href="Code-Contributions/TRUNK-3401/Pull_Request/2625.html">Pull Request</a></li>
@@ -79,9 +75,14 @@
 <p><a name="code-3"></a></p>
 <h2 id="code-contribution-3-trunk-5331">Code Contribution #3 TRUNK-5331</h2>
 <h3 id="description-2">Description</h3>
-<p>OpenMRS is a medical record system and its users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS' extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, you can view the [OpenMRS User Story](Code-Contributions/TRUNK-5331/Jira_Ticket/[#TRUNK-5331]</p>
+<p>OpenMRS’ users occasionally need to intersect large collections of patients to find common traits among them. OpenMRS' extant intersection function did not produce a true intersection, so we refactored the function and corrected its behavior. For more details about the requirements, you can view the <a href="Code-Contributions/TRUNK-3401/Jira_Ticket/TRUNK-3401.htm">OpenMRS User Story</a></p>
 <p>This contribution added 46 lines of code to the product; it added one new test (29 lines) and refactored one function (17 lines). This contribution represents 20 hours of effort, and you may view the exact changes we made in the corresponding diff under <a href="Code-Contributions/TRUNK-5331/TRUNK-5331.txt">Code Contribution #3</a>.</p>
-<p>OpenMRS' automated code review of this contribution, which can be found in the <a href="Code-Contributions/TRUNK-5331/Pull_Request/2649.html">Pull Request</a>, showed that we met all of their quality standards, which included (but were not limited to): *Passing integration testing *Increasing the product's overall code coverage *Adhering to style conventions.</p>
+<p>OpenMRS' automated code review of this contribution, showed that we met all of their quality standards, which included (but were not limited to):</p>
+<ul>
+<li>Passing integration testing</li>
+<li>Increasing the product's overall code coverage</li>
+<li>Adhering to style conventions. All of the above can be found in the <a href="Code-Contributions/TRUNK-5331/Pull_Request/2649.html">GitHub pull request</a> for this user story.</li>
+</ul>
 <p>Additionally, to address the needs of our code's maintainers, we created a UML activity diagram depicting the intended behavior of the function. The diagram can be found under <a href="#TRUNK-5331-UML"><em>Code Contribution #3 UML Activity Diagram</em></a>.</p>
 <h3 id="links-2">Links</h3>
 <ul>
@@ -93,7 +94,13 @@
 <p><a name="code-4"></a></p>
 <h2 id="code-contribution-4-trunk-5382">Code Contribution #4 TRUNK-5382</h2>
 <h3 id="description-3">Description</h3>
-<p>The method getSetmembers() returns all members which includes both retired and unretired members, and it does not have an option to exclude retired members, so in order to enhance the user experience OpenFoss has claimed this issue and made an attempt to add this feature. We have added a method called getSetMembers(Boolean includeRetired) if the parameter is set to true the method returns the same as getSEtMembers() otherwise returns all set members excluding retired members.</p>
+<p>In order to enhance the functionality of the OpenMRS core, OpenFOSS added the option to filter members of collections. Doing so, improves performance and reduces resources when the filter is necessary.</p>
+<p>OpenMRS' automated code review of this contribution, showed that we met all of their quality standards, which included (but were not limited to):</p>
+<ul>
+<li>Passing integration testing</li>
+<li>Increasing the product's overall code coverage</li>
+<li>Adhering to style conventions. All of the above can be found in the GitHub pull request for this user story.</li>
+</ul>
 <h3 id="links-3">Links</h3>
 <ul>
 <li><a href="Code-Contributions/TRUNK-5382/Pull_Request/2654.html">Pull Request</a></li>
@@ -104,9 +111,9 @@
 <p><a name="backlog-1"></a></p>
 <h2 id="backlog-contribution-1-trunk-188">Backlog Contribution #1 TRUNK-188</h2>
 <h3 id="description-4">Description</h3>
-<p>This artifact is the result of OpenFOSS attempting to contribute to TRUNK-188. This user story described a bug that occurs when trying to access a specific module. After looking into this issue, our team discovered that the bug reported here is no longer relevant to the current version of OpenMRS. This was due to the MRNgen module that was causing the errors to be replaced with a newer module IDGen. Knowing this we shared our findings and made recommendations to the maintainers to close this user story.</p>
-<h3 id="links-4">Links</h3>
+<p>This artifact is the result of OpenFOSS attempting to contribute to TRUNK-188. This user story described a bug that occurs when trying to access a specific module. After looking into this issue, our team discovered that the bug reported here is no longer relevant to the current version of OpenMRS. This was due to the MRNgen module that was causing the errors to be replaced with a newer module IDGen. Knowing this we shared our findings and made recommendations to the maintainers to close this user story, since then the OpenMRS maintainers have regressed this ticket to design work.</p>
 <p><img src="Backlog-Contributions/TRUNK-188/TRUNK-188_relevant_contribution.png" alt="TRUNK-188 Contribution" /></p>
+<h3 id="links-4">Links</h3>
 <ul>
 <li><a href="Backlog-Contributions/TRUNK-188/TRUNK-188.htm">OpenMRS User Story</a></li>
 </ul>
@@ -114,9 +121,9 @@
 <p><a name="backlog-2"></a></p>
 <h2 id="backlog-contribution-2-trunk-5025">Backlog Contribution #2 TRUNK-5025</h2>
 <h3 id="description-5">Description</h3>
-<h3 id="links-5">Links</h3>
-<p>This artifact is the result of the OpenFOSS team working together on a code contribution without success. During development, our team found that some of the underlying code required to complete this user story was not correctly implemented. As such we reached out to inform the maintainers of the code that these issues existed and how to test for the fix within the comments of the user story. This lead to the creation of TRUNK-5391.</p>
+<p>This artifact is the result of the OpenFOSS team working together on a code contribution, however our team found that some of the underlying code required to complete this user story was not correctly implemented. As such, we reached out to inform the OpenMRS maintainers that these issues existed, and contributed tests within the comments of the user story. This led to the creation of TRUNK-5391 which more accurately describes and tracks the issue.</p>
 <p><img src="Backlog-Contributions/TRUNK-5025/TRUNK-5025_relevant_contribution.png" alt="TRUNK-5025 Contribution" /></p>
+<h3 id="links-5">Links</h3>
 <ul>
 <li><a href="Backlog-Contributions/TRUNK-5025/TRUNK-5025.htm">OpenMRS User Story</a></li>
 </ul>
@@ -124,7 +131,7 @@
 <p><a name="backlog-3"></a></p>
 <h2 id="backlog-contribution-3-trunk-5372">Backlog Contribution #3 TRUNK-5372</h2>
 <h3 id="description-6">Description</h3>
-<p>Our team found that the OpenMRS team had duplicated one of their requirements and alerted them to the potential redundancy. OpenMRS has since marked TRUNK-5372 as a duplicate of the other item we found, TRUNK-5366.</p>
+<p>The OpenMRS community depends on contributors to maintain and correct their product backlog. The OpenFOSS team found that the OpenMRS team had duplicated one of their user stories and alerted them to the potential redundancy. OpenMRS has since marked TRUNK-5372 as a duplicate of the other user story we located, TRUNK-5366.</p>
 <h3 id="links-6">Links</h3>
 <ul>
 <li><a href="Backlog-Contributions/TRUNK-5372/TRUNK-5372.htm">OpenMRS User Story</a></li>
@@ -133,7 +140,7 @@
 <p><a name="backlog-4"></a></p>
 <h2 id="backlog-contribution-4-trunk-5391">Backlog Contribution #4 TRUNK-5391</h2>
 <h3 id="description-7">Description</h3>
-<p>While the OpenFOSS team was pair programming on another OpenMRS backlog issue, we realized that tests were failing because there was a method in the openmrs-core/api/src/main/java/org/openmrs/Obs.java called setValueBoolean(Boolean) that was setting only null and nothing else when a Boolean is passed in. The OpenMRS team added value by opening a bug report in the OpenMRS Bug tracking tool called Jira for the issue to be assessed. We also recommended various tests that could be used to identify the issue.</p>
+<p>The OpenFOSS team added value by finding and opening a bug report to the OpenMRS community to be assessed. We also contributed various unit tests to verify the bug has been resolved. This ensures that this bug is known to the OpenMRS community and is tracked until it’s resolved.</p>
 <h3 id="links-7">Links</h3>
 <ul>
 <li><a href="Backlog-Contributions/TRUNK-5391/TRUNK-5391.htm">OpenMRS User Story</a></li>
@@ -141,8 +148,7 @@
 <p>** the raw git diff exists at the bottom of this document under ** <a href="#TRUNK-5391"><em>Code Contribution #1 TRUNK-5391</em></a></p>
 <p><a name="contusage"></a></p>
 <h1 id="raw-contribution-usage">Raw Contribution Usage</h1>
-<p>This section provides information required for a future developer to continue development with our existing code.</p>
-<p>This document has existing links to the OpenFOSS team's contributions. The directory structure this is as follows:</p>
+<p>This section provides information required for a future developer to continue development with OpenFOSS team’s existing code. This document has existing links to the OpenFOSS team's contributions. The directory structure of these contributions is as follows:</p>
 <ul>
 <li><p>Code-Contributions</p>
 <ul>
@@ -161,24 +167,24 @@
 </ul></li>
 <li>...</li>
 </ul></li>
-<li><p>The Code-Contributions contains directories of the user stories the OpenFOSS team worked on throughout the semester. Within each of these contribution directories the following items exist:</p>
+<li><p>The Code-Contributions contains directories of the user stories the OpenFOSS team worked on throughout the semester. Within each of these contribution directories, the following items exist:</p>
 <ul>
-<li>Jira Ticket: the directory which contains a static html of the ticket for the OpenMRS issue tracker.</li>
-<li>Pull Request: the directory containing a static html of the GitHub Pull Request for the user story.</li>
-<li>EXAMPLE_CONTRIBUTION.txt : a txt file containing the git diffs of the OpenFOSS Contribution.</li>
+<li>Jira_Ticket: the directory which contains a static html copy of the ticket for the OpenMRS issue tracker.</li>
+<li>Pull_Request: the directory containing a static html copy of the GitHub pull request for the user story.</li>
+<li>EXAMPLE_CONTRIBUTION.txt : a txt file containing the git diffs of the OpenFOSS code contribution.</li>
 </ul></li>
-<li><p>Backlog-Contributions contains directories of the OpenMRS backlog user stories that we contributed to. Within each of these contribution directories the following items exist:</p>
+<li><p>Backlog-Contributions contains directories of the OpenMRS backlog user stories that we contributed to. Within each of these contribution directories, the following items exist:</p>
 <ul>
-<li>A static html file containing the OpenMRS ticket Contributed to. If the ticket Itself is not evidence of Value added, and rather a contribution inside of the ticket is evidence of value an image containing “relevant_contribution.png” will be included to provide context.</li>
+<li>A static html copy containing the OpenMRS user story contributed to. If the user story itself is not evidence of value added, an image containing “relevant_contribution.png” will be included to provide context.</li>
 </ul></li>
 </ul>
 <p><a name="note"></a></p>
 <h2 id="note-for-static-html-files">Note for Static HTML Files</h2>
-<p>Any static html files contain the information relevant to the contribution. However external links still exist within the files. These external links are not indicative of the team’s contribution. As an example within the Pull Request Directories the ‘Conversation’ ‘Commits’, and ‘Files changed’ tabs function statically.</p>
+<p>Any static html files contain the information relevant to the OpenFOSS contribution. However, external links still exist within these html files. These external links are not indicative of OpenFOSS’ contribution. As an example, within a given Pull_Request directory, the ‘Conversation’, ‘Commits’, and ‘Files changed’ tabs function statically.</p>
+<p><img src="pr_links_example.png" alt="Static Link example image" /></p>
 <p><a name="licence"></a></p>
 <h1 id="licence">Licence</h1>
-<p>OpenMRS code is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL has not been distributed with this file, one can obtain a copy of this licence at <a href="http://mozilla.org/MPL/2.0/">mozilla.org/MPL/2.0</a>. OpenMRS is also distributed under the terms of the Healthcare Disclaimer located at <a href="http://openmrs.org/licence">openmrs.org/licence</a></p>
-<p>Therefore, anyone is free to make modifications to the project files as far as the terms of the license permit.</p>
+<p>OpenMRS code is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL has not been distributed with this file, one can obtain a copy of this licence within this directory as <a href="Mozilla_Public_License.txt">&quot;Mozilla_Public_License.txt&quot;</a> or at <a href="https://mozilla.org/MPL/2.0">mozilla.org/MPL/2.0</a>. OpenMRS is also distributed under the terms of the Healthcare Disclaimer located at <a href="https://openmrs.org/license">openmrs.org/license</a> which can also be found within this directory as <a href="Healthcare_Disclaimer.txt">&quot;Healthcare_Disclaimer.txt&quot;</a>. Therefore, anyone is free to make modifications to the project files as far as the terms of the license permit.</p>
 <p><a name="ref"></a></p>
 <h1 id="references">References</h1>
 <h2 id="code-contribution-1-stand-79-1"><a name='STAND-79'>Code Contribution #1 STAND-79</h2>
@@ -436,7 +442,7 @@ index d6e84f94e..258882ac2 100644
  }
 </code></pre>
 <h3 id="code-contribution-3-uml-activity-diagram"><a name ='TRUNK-5331-UML'>Code Contribution #3 UML Activity Diagram</h3>
-<p><img src="Code-Contributions/TRUNK-5331/CohortIntersect.jpg" /></p>
+<p><a href="Code-Contributions/TRUNK-5331/CohortIntersect.jpg"><img src="Code-Contributions/TRUNK-5331/CohortIntersect.jpg" alt="Cohort Inters    ec UML Diagram." style="width: 100%;"/></a></p>
 <h2 id="code-contribution-4-trunk-5382-1"><a name='TRUNK-5382'>Code Contribution #4 TRUNK-5382</h2>
 <pre><code>diff --git a/api/src/main/java/org/openmrs/Concept.java b/api/src/main/java/org/openmrs/Concept.java
 index e3a7f0e4f..2dabc769c 100644
